@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -90,9 +90,6 @@
                         </div>
 
 
-                        {{-- ###### Inserire immagine ###### --}}
-
-
                         <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
@@ -107,6 +104,28 @@
                             </div>
                         </div>
                         
+                        {{-- Section Upload Image --}}
+                        <div class="form-group row">
+
+                            <label for="image" class="col-md-4 col-form-label text-md-right">{{__('Add a image')}}</label>
+                            <div class="col-md-6 d-flex align-items-center">
+                                <img id="uploadPreview" width="100" src="http://drive.google.com/uc?export=view&id=1RvAowCnXCvqajysCVqzhMseDH85cBJbo">
+                                <input type="file" class="form-control-file mx-3" id="image" name="image" onchange="PreviewImage();">
+                            </div>
+
+                            {{-- This function allows you to have the preview of the image --}}
+                            <script type="text/javascript">
+                                function PreviewImage() {
+                                    var oFReader = new FileReader();
+                                    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+
+                                    oFReader.onload = function (oFREvent){
+                                        document.getElementById("uploadPreview").src= oFREvent.target.result;
+                                    };
+                                };
+                            </script>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
