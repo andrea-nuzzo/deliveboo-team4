@@ -107,13 +107,15 @@
                         </div>
                         
                         <div class="form-group row">
-                            
-                            @foreach ($typologies as $typology)
-                            <div class="form-check form-check-inline col-md-3">
-                                <input type="checkbox" id="{{$typology->type}}" name="{{$typology->type}}" class="form-check-input">
-                                <label class="form-check-label" for="{{$typology->type}}">{{$typology->type}}</label>
-                            </div>
+                            <label for="typologies" class="col-md-4 col-form-label text-md-right">{{ __('Typolgies') }}</label>
+                            <div class="col-md-6">
+                                @foreach ($typologies as $typology)
+                                    <div class="form-check form-check-inline col-3">
+                                        <input type="checkbox" id="{{$typology->type}}" name="{{$typology->type}}" class="form-check-input">
+                                        <label class="form-check-label" for="{{$typology->type}}">{{$typology->type}}</label>
+                                    </div>
                             @endforeach
+                            </div>
                         </div>
 
 
