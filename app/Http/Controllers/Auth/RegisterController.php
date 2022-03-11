@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class RegisterController extends Controller
 {
@@ -55,9 +57,9 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['required', 'string'],
-            'p_iva' => ['required', 'numeric' , 'digits:11'],
-            // 'image' => ['required', 'string'],
-            'phone' => ['required', 'numeric', 'digits_between:9, 15'],
+            'p_iva' => ['required', 'numeric' ],
+            'image' => ['required', 'image', 'max:2048'],
+            'phone' => ['required', 'numeric'],
         ]);
     }
 
@@ -75,7 +77,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'p_iva' => $data['p_iva'],
-            'image' => $data['image'],
+            'image' => Storage::put('uploads',$data['image']),
             'phone' => $data['phone'],
             'slug' => Str::of($data['name'])->slug('-')
         ]);
