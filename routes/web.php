@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/welcome', 'TypologyController@index')->name('welcome');
+// Route::resource('/register', 'TypologyController@index');
+Route::get('/register', 'TypologyController@index')->name('register');

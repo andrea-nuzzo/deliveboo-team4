@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
+
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
@@ -104,6 +106,17 @@
                             </div>
                         </div>
                         
+                        <div class="form-group row">
+                            
+                            @foreach ($typologies as $typology)
+                            <div class="form-check form-check-inline col-md-3">
+                                <input type="checkbox" id="{{$typology->type}}" name="{{$typology->type}}" class="form-check-input">
+                                <label class="form-check-label" for="{{$typology->type}}">{{$typology->type}}</label>
+                            </div>
+                            @endforeach
+                        </div>
+
+
                         {{-- Section Upload Image --}}
                         <div class="form-group row">
 
@@ -133,6 +146,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
