@@ -84,11 +84,6 @@
                     Laravel
                 </div>
 
-                
-                @foreach ($typologies as $typology)
-                    <img src="http://drive.google.com/uc?export=view&id={{$typology->image}}" alt="dio bellisso">
-                @endforeach
-
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
