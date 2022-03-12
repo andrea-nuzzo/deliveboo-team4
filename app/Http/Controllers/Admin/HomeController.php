@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -22,7 +25,13 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        //Prendo l'id dell'utente loggato
+        $idLog = Auth::id();
+
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+        
+        return view('home', compact('user'));
     }
 }
