@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Dish;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -51,8 +53,23 @@ class DishController extends Controller
 
         $data = $request->all();
 
-        dd($data);
+        $newDish = new Dish();
+        $newDish->name = $data['name'];
+        $newDish->ingredients = $data['ingredients'];
+        $newDish->description = $data['description'];
+        $newDish->price = $data['price'];
+        $newDish->visible = isset($data['visible']);
+        
+        if(isset($data['image'])){
+            $path_image = Storage::put("uploads", $data["image"]);
+            $newDish->image = $path_image;
+        }
 
+        $newDish->user_id = Auth::id();
+
+        $newDish->save();
+
+        return redirect()->route('admin.dishes.show', $newDish->id);
         
     }
 
@@ -62,9 +79,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $dish)
     {
-        //
+        return view("admin.dishes.show", compact("dish"));
     }
 
     /**
@@ -73,9 +90,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $dish)
     {
-        //
+        return view("admin.dishes.edit", compact("dish"));
     }
 
     /**
@@ -96,8 +113,14 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $dish)
     {
-        //
+        if($dish->image){
+            Storage::delete($dish->image);
+        }
+
+        $dish->delete();
+
+        return redirect()->route('admin.dishes.index');
     }
 }
