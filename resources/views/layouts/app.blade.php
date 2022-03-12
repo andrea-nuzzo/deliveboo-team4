@@ -44,11 +44,17 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <button class="generalBtn d-flex align-items-center">
+                                    <i class="fas fa-user-circle"></i>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </button>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <button class="generalBtn mx-3 d-flex align-items-center">
+                                        <i class="fas fa-user-circle"></i>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </button>
                                 </li>
                             @endif
                         @else
