@@ -69,7 +69,7 @@ class DishController extends Controller
 
         $newDish->save();
 
-        return redirect()->route('admin.dishes.show', $newDish->id);
+        return redirect()->route('dishes.show', $newDish->id);
         
     }
 
@@ -121,6 +121,6 @@ class DishController extends Controller
 
         $dish->delete();
 
-        return redirect()->route('admin.dishes.index');
+        return redirect()->route('dishes.index');
     }
 }
