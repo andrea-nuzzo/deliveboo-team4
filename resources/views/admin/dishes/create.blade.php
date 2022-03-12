@@ -92,18 +92,8 @@
         {{-- Section Button --}}
         <button type="submit" class="btn btn-primary">Crea</button>
     
-    
+        <a href="{{route("dishes.index")}}"><button type="button" class="btn plainBtn">Ritorna alla lista</button></a>
     
     </form>
 </div>
-
-
-
-
-
-
-
-
-    {{-- **** Category_id JOIN **** --}}
-
 @endsection

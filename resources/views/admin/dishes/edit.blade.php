@@ -98,6 +98,8 @@
     
         {{-- Section Button --}}
         <button type="submit" class="btn btn-primary">Modifica</button>
+
+        <a href="{{route("dishes.index")}}"><button type="button" class="btn plainBtn">Ritorna alla lista</button></a>
     
     
     

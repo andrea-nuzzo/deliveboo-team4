@@ -41,4 +41,16 @@
         </div>
     @endif
 
+    <a href="{{route("dishes.index")}}"><button type="button" class="btn plainBtn">Ritorna alla lista</button></a>
+
+    <a href="{{route("dishes.edit", $dish->id)}}"><button type="button" class="btn">Modifica</button></a>
+
+
+    <form action="{{route("dishes.destroy", $dish->id)}}" method="POST">
+        @csrf
+        @method("DELETE")
+        <button type="submit" class="btn">Elimina</button>
+    </form>
+
+        
 @endsection

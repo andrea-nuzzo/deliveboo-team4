@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <div class="col">
+        <a href="{{route("dishes.create")}}"><button type="button" class="btn">Aggiungi Piatto</button></a>
+    </div>
     @foreach ($dishes as $dish)
         @if($dish->user_id == Auth::id())
             <div class="row my-2">
