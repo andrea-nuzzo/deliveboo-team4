@@ -10,7 +10,7 @@
 
             {{-- Sezione Ingredienti --}}
             <div>
-                <h6>Ingredineti</h6>
+                <h6>Ingredienti</h6>
                 <div>{{$dish->ingredients}}</div>
             </div>
 

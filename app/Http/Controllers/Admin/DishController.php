@@ -102,9 +102,29 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        $request->validate($this->validation);
+
+        $data = $request->all();
+
+        $dish->name = $data['name'];
+        $dish->ingredients = $data['ingredients'];
+        $dish->description = $data['description'];
+        $dish->price = $data['price'];
+        $dish->visible = isset($data['visible']);
+        
+        if(isset($data['image'])){
+            Storage::delete($dish->image);
+            $path_image = Storage::put("uploads", $data["image"]);
+            $dish->image = $path_image;
+        }
+
+        // $dish->user_id = Auth::id();
+
+        $dish->save();
+
+        return redirect()->route('dishes.show', $dish->id);
     }
 
     /**
