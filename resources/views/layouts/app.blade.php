@@ -23,23 +23,37 @@
     <div id="body-pd">
         {{-- Se è un utente non Loggato--}}
         @guest
+
+            <div class="d-flex justify-content-between">
+
+                {{-- logo --}}
+                <div>
                     <a href="{{ url('/') }}">
                         {{-- {{ config('app.name', 'Laravel') }} --}}
                         <img src="https://drive.google.com/uc?export=view&id=1AFtmmqIiVfX-1hcAgdOBmpuRSNKD5cFv" alt="Logo-DeliveBoo" width="100">
                     </a>
                 </div>
+
                 <div class="d-flex">
+
+                    {{-- login --}}
                     <button class="generalBtn d-flex align-items-center">
                         <i class="fas fa-user-circle"></i>
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </button>
+
+                    {{-- register --}}
                     @if (Route::has('register'))
                         <button class="generalBtn mx-3 d-flex align-items-center">
                             <i class="fas fa-user-circle"></i>
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </button>
                     @endif
+
+                </div>
+
             </div>
+
         @else
 
         {{-- Se è un utente Loggato--}}
