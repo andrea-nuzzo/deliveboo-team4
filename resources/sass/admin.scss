@@ -224,3 +224,28 @@ body {
     height: 300px;
     object-fit: cover;
   }
+
+// bottoni login
+.btn--green,
+.card--header {
+    background-color: $main-color;
+    color: #fff;
+    a {
+        color: #fff;
+    }
+}
+
+.btn--green:hover {
+    color: #fff;
+    background-color: $main-hover;
+    a {
+        color: #fff;
+    }
+}
+
+.link-login {
+    color: $main-color;
+}
+.link-login:hover {
+    color: $main-hover;
+}
