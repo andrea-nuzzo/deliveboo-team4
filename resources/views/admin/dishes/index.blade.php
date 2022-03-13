@@ -24,7 +24,7 @@
                         <tbody>
                         @foreach ($dishes as $dish)
                         @if($dish->user_id == Auth::id())
-                          <tr class="{{$loop->index % 2 == 0 ? "bcgColor" : "" }}">
+                          <tr class="{{$loop->index % 2 == 0 ? "card--header" : "" }}">
                             <th scope="row">{{$loop->index + 1}}</th>
                             <td>{{$dish->name}}</td>
                             <td>€ {{$dish->price}}</td>
