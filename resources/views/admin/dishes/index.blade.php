@@ -9,8 +9,6 @@
                 <a href="{{route("dishes.create")}}"><button type="button" class="btn">Aggiungi Piatto</button></a>
                 
                 <div class="card-body row">
-                    @foreach ($dishes as $dish)
-                    @if($dish->user_id == Auth::id())
                     <table class="table">
                         <thead>
                           <tr>
@@ -24,54 +22,43 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td></td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                        <div class="row my-2">
-                            <div class="col">{{$dish->name}}</div>
-                            <div class="col">{{$dish->price}}</div>
+                        @foreach ($dishes as $dish)
+                        @if($dish->user_id == Auth::id())
+                          <tr class="{{$loop->index % 2 == 0 ? "bcgColor" : "" }}">
+                            <th scope="row">{{$loop->index + 1}}</th>
+                            <td>{{$dish->name}}</td>
+                            <td>€ {{$dish->price}}</td>
                             @if($dish->visible)
-                                <div class="col btn btn-success">Visibile</div>
+                                <td>Visibile</td>
                             @else
-                                <div class=" col btn btn-danger">Visibile</div>
+                                <td>Non Visibile</td>
                             @endif
-            
-                            {{-- Sezione Bottoni Piatto --}}
-                            <div class="col">
-                                <a href="{{route("dishes.show", $dish->id)}}"><button type="button" class="btn">Visualizza</button></a>
-                            </div>
-                            <div class="col">
-                                <a href="{{route("dishes.edit", $dish->id)}}"><button type="button" class="btn">Modifica</button></a>
-                            </div>
-                            <div class="col">
+                            <td class="text-center">
+                                <a href="{{route("dishes.show", $dish->id)}}">
+                                    <button type="button" class="btn">
+                                        <i class="fa-solid fa-binoculars"></i>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="{{route("dishes.edit", $dish->id)}}">
+                                    <button type="button" class="btn">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="text-center">
                                 <form action="{{route("dishes.destroy", $dish->id)}}" method="POST">
                                     @csrf
                                     @method("DELETE")
-                                    <button type="submit" class="btn">Elimina</button>
+                                    <button type="submit" class="btn"><i class="fa-solid fa-trash-can"></i></button>
                                 </form>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-                </div>
+                            </td>
+                          </tr>
+                        @endif
+                        @endforeach
+                        </tbody>
+                      </table>               
             </div>
         </div>
     </div>
