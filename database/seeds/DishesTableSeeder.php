@@ -23,7 +23,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/pinsa-bufalotta.jpeg',
                 // ognuno deve inserire lo user id del proprio Porca Vacca
-                'user_id' => 23,
+                'user_id' => 4,
                 'category_id' => null,
             ],
             [
@@ -34,7 +34,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/angus-anto-spacca.jpeg',
                 // ognuno deve inserire lo user id del proprio Porca Vacca
-                'user_id' => 23,
+                'user_id' => 4,
                 'category_id' => null,
             ],
             [
@@ -45,7 +45,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/crispy-tacos.jpeg',
                 // ognuno deve inserire lo user id del proprio Porca Vacca
-                'user_id' => 23,
+                'user_id' => 4,
                 'category_id' => null,
             ],
             [
@@ -56,7 +56,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/chili-hot-dog.jpeg',
                 // ognuno deve inserire lo user id del proprio Porca Vacca
-                'user_id' => 23,
+                'user_id' => 4,
                 'category_id' => null,
             ],
             [
@@ -67,7 +67,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/gallotto.jpeg',
                 // ognuno deve inserire lo user id del proprio Porca Vacca
-                'user_id' => 23,
+                'user_id' => 4,
                 'category_id' => null,
             ],
         ];

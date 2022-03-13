@@ -251,6 +251,18 @@ body {
     }
 }
 
+.btn-back {
+    color: $main-color;
+}
+
+.btn-back:hover {
+    border: 1px solid $main-color;
+    color: $main-color;
+}
+
+
+
+
 .link-login {
     color: $main-color;
 }

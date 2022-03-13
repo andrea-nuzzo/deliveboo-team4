@@ -97,9 +97,9 @@
         </div>
     
         {{-- Section Button --}}
-        <button type="submit" class="btn btn-primary">Modifica</button>
+        <button type="submit" class="btn btn--green">Modifica</button>
 
-        <a href="{{route("dishes.index")}}"><button type="button" class="btn plainBtn">Ritorna alla lista</button></a>
+        <a href="{{route("dishes.index")}}"><button type="button" class="btn btn-back">Ritorna alla lista</button></a>
     
     
     
