@@ -112,7 +112,13 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view("admin.dishes.edit", compact("dish"));
+        //Prendo l'id dell'utente loggato
+        $idLog = Auth::id();
+
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+
+        return view("admin.dishes.edit", compact("dish", "user"));
     }
 
     /**
