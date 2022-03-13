@@ -24,7 +24,7 @@
         {{-- Se è un utente non Loggato--}}
         @guest
 
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center pt-3">
 
                 {{-- logo --}}
                 <div>

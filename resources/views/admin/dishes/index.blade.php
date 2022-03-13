@@ -15,12 +15,12 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Prezzo</th>
-                            <th scope="col">Visibilità</th>
-                            <th scope="col">Visualizza</th>
-                            <th scope="col">Modifica</th>
-                            <th scope="col">Elimina</th>
+                            <th  scope="col">Nome</th>
+                            <th  scope="col">Prezzo</th>
+                            <th  scope="col">Visibilità</th>
+                            <th class="text-center" scope="col">Visualizza</th>
+                            <th class="text-center" scope="col">Modifica</th>
+                            <th class="text-center" scope="col">Elimina</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -37,14 +37,14 @@
                                         <td class="text-center">
                                             <a href="{{route("dishes.show", $dish->id)}}">
                                                 <button type="button" class="btn">
-                                                    <i class="fa-solid fa-binoculars"></i>
+                                                    <i class="fa-solid fa-binoculars "></i>
                                                 </button>
                                             </a>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{route("dishes.edit", $dish->id)}}">
                                                 <button type="button" class="btn">
-                                                    <i class="fa-solid fa-pencil"></i>
+                                                    <i class="fa-solid fa-pencil "></i>
                                                 </button>
                                             </a>
                                         </td>
@@ -52,7 +52,7 @@
                                             <form action="{{route("dishes.destroy", $dish->id)}}" method="POST">
                                                 @csrf
                                                 @method("DELETE")
-                                                <button type="submit" class="btn"><i class="fa-solid fa-trash-can"></i></button>
+                                                <button type="submit" class="btn"><i class="fa-solid fa-trash-can "></i></button>
                                             </form>
                                         </td>
                                     </tr>
