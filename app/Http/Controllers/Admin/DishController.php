@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Dish;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DishController extends Controller
 {
@@ -26,9 +27,15 @@ class DishController extends Controller
      */
     public function index()
     {
+        //Prendo l'id dell'utente loggato
+        $idLog = Auth::id();
+
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+
         $dishes = Dish::all();
 
-        return view('admin.dishes.index', compact('dishes'));
+        return view('admin.dishes.index', compact('dishes', 'user'));
     }
 
     /**

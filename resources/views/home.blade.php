@@ -14,12 +14,12 @@
                         </div>
                     @endif
                     <div class="col-6">
-                        <img src="{{ asset("storage/{$user->image}") }}" alt="Logo users" class="rounded-circle"> 
+                        <img src="{{ asset("storage/{$user->image}") }}" alt="Logo users" class="rounded-circle img-show"> 
                     </div>
 
                     <div class="col-6">
-                        <div>{{$user->name}}</div>
-                        {{ __('You are logged in!') }}
+                        {{ __('Benvenuto!') }}
+                        <h1>{{$user->name}}</h1>
                     </div>
 
 

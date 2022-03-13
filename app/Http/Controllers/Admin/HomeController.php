@@ -33,5 +33,6 @@ class HomeController extends Controller
         $user = DB::table('users')->where('id', '=', $idLog)->first();
         
         return view('home', compact('user'));
+        
     }
 }
