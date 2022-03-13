@@ -45,7 +45,14 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('admin.dishes.create');
+        //Prendo l'id dell'utente loggato
+          $idLog = Auth::id();
+
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+  
+          
+        return view('admin.dishes.create', compact('user'));
     }
 
     /**
@@ -88,7 +95,13 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view("admin.dishes.show", compact("dish"));
+        //Prendo l'id dell'utente loggato
+        $idLog = Auth::id();
+
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+
+        return view("admin.dishes.show", compact("dish", "user"));
     }
 
     /**

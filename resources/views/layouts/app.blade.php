@@ -112,7 +112,7 @@
         @endguest
 
         {{-- Contenuto --}}
-        <main class="height-100 bg-lightpy-4">
+        <main class="height-100 bg-light">
             @yield('content')
         </main>
     </div>
