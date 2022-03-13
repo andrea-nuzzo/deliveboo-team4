@@ -229,17 +229,25 @@ body {
 .btn--green,
 .card--header {
     background-color: $main-color;
-    color: #fff;
+    color: $white-color;
     a {
-        color: #fff;
+        color: $white-color;
     }
 }
 
 .btn--green:hover {
-    color: #fff;
+    color: $white-color;
     background-color: $main-hover;
     a {
-        color: #fff;
+        color: $white-color;
+    }
+}
+
+.btn--white{
+    background-color: $white-color;
+    color: $main-color;
+    a {
+        color:$white-color;
     }
 }
 
@@ -248,10 +256,9 @@ body {
 }
 .link-login:hover {
     color: $main-hover;
-<<<<<<< HEAD
 }
 
 
-=======
+.bcgColor{
+    background-color: lightgray;
 }
->>>>>>> 14d6b691c82db3d2d7bf2ed83c4f400baf24c814
