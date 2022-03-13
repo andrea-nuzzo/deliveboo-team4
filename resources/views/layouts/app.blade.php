@@ -56,8 +56,8 @@
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
                 <div> 
-                    <a href="#" class="nav_logo">
-                        <i class='bx bx-layer nav_logo-icon'></i>
+                    <a href="{{ url('/') }}" class="nav_logo">
+                        <img src="https://drive.google.com/uc?export=view&id=1HFXUpedYTFC5Sv42wubUyyUvy2-nV9eB" alt="Logo-DeliveBoo" width="20">
                         <span class="nav_logo-name">DeliveBoo</span>
                     </a>
                     
