@@ -22,6 +22,9 @@ Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function()
 });
 
 // *--- Area Pubblica ---*
+
+Route::get('/register', 'TypologyController@index')->name('register');
+
 Route::get('{any?}', function () {
     return view('front');
 })->where('any','.*');
