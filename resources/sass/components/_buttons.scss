@@ -76,3 +76,41 @@
 .color-main {
     color: $main-color;
 }
+
+// Collapse Button
+
+.socialIcons {
+    text-align: center;
+  }
+  
+  .socialIcons div {
+    display: inline-block;
+    border-radius: 2em;
+    overflow: hidden;
+  }
+  
+  .socialIcons div a {
+    display: block;
+    padding-top: 0.3em;
+    min-width: 2em;
+    max-width: 2em;
+    height: 2em;
+    transition: 0.5s;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: $main-color;
+  }
+  
+  
+  .socialIcons div:hover a {
+    max-width: 200px;
+    padding-left: .5em;
+    padding-right: .5em;
+
+  }
+  
+  .socialIcons .buttonPlus {
+    background-color: $white-color;
+  }
+  

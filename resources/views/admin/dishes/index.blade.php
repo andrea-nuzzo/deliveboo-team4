@@ -7,7 +7,9 @@
             <div class="card">
                 <div class="card-header card--header d-flex justify-content-between align-items-center">
                     <div>{{ __('Lista dei piatti') }}</div>
-                    <a href="{{route("dishes.create")}}"><button type="button" class="generalBtn btn--white">Aggiungi Piatto</button></a>
+                    <div class="socialIcons d-flex align-items-center">
+                        <div class="buttonPlus"><a href="{{route("dishes.create")}}"><i class="fa-solid fa-plus"></i>Aggiungi Piatto</a></div>
+                    </div>
                 </div>
                 
             </div>
@@ -21,7 +23,6 @@
                                     @if (empty($dish->image))
                                     <img class="pic-1" src="http://drive.google.com/uc?export=view&id=1RvAowCnXCvqajysCVqzhMseDH85cBJbo">
                                     @else
-                                        
                                         <img class="pic-1" src="{{asset("storage/{$dish->image}")}}">
                                     @endif
                                    
@@ -56,7 +57,7 @@
                             </div>
                             <div class="product-content">
                                 <h3 class="title">{{$dish->name}}</h3>
-                                <div class="price">€ {{$dish->price}}</div>
+                                <div class="price">Prezzo: € {{$dish->price}}</div>
                             </div>
                         </div>
                     </div>
