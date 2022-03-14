@@ -11,9 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.js('resources/js/admin.js', 'public/js')
- .sass('resources/sass/admin.scss', 'public/css');
 
+// backoffice
+mix.js('resources/js/admin.js', 'public/js')
+    .sass('resources/sass/admin.scss', 'public/css');
 
+// frontoffice
 mix.js('resources/js/guest/front.js', 'public/js')
- .sass('resources/sass/front.scss', 'public/css');
+    .sass('resources/sass/front.scss', 'public/css');
