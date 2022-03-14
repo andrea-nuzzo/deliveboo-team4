@@ -5,17 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header card--header">{{ __('Register') }}</div>
+                <div class="card-header card--header">{{ __('Registrati') }}</div>
 
 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" name="myForm" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         {{-- Section Name --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome Ristorante') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome Ristorante *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -30,7 +30,7 @@
 
                         {{-- Section E-mail --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -45,31 +45,34 @@
 
                         {{-- Section Password --}}
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" minlength="8" required  autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                                
                             </div>
                         </div>
 
                         {{-- Section Confirm Password --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required minlength="8" autocomplete="new-password"
+                                onSubmit="validate()">
                             </div>
                         </div>
 
                         {{-- Section Address --}}
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
@@ -84,9 +87,9 @@
 
                         {{-- Section Partita IVA --}}
                         <div class="form-group row">
-                            <label for="p_iva" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva') }}</label>
+                            <label for="p_iva" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva *') }}</label>
                             <div class="col-md-6">
-                                <input id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus>
+                                <input id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" required minlength="11" maxlength="11" autocomplete="p_iva" autofocus>
 
                                 @error('p_iva')
                                     <span class="invalid-feedback" role="alert">
@@ -100,7 +103,7 @@
                         <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required minlength="9" maxlength="15" autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -112,11 +115,13 @@
 
                         {{-- Section Typologies --}}
                         <div class="form-group row">
-                            <label for="typologies" class="col-md-4 col-form-label text-md-right">{{ __('Tipologie') }}</label>
+                            <label for="typologies" class="col-md-4 col-form-label text-md-right">{{ __('Tipologie *') }}</label>
                             <div class="col-md-6">
                                 @foreach ($typologies as $typology)
                                     <div class="form-check form-check-inline col-3">
-                                        <input type="checkbox" id="{{$typology->slug}}" name="typologies[]" class="form-check-input" value="{{$typology->id}}" {{in_array($typology->id, old("typologies", [])) ? 'checked' : ''}}>
+                                        <input type="checkbox" id="{{$typology->slug}}" name="typologies[]" class="form-check-input" 
+                                        required oninvalid="this.setCustomValidity('Selezionare una o più tipologie')" oninput="this.setCustomValidity('')"
+                                        value="{{$typology->id}}" {{in_array($typology->id, old("typologies", [])) ? 'checked' : ''}}>
                                         <label class="form-check-label" for="{{$typology->slug}}">{{$typology->type}}</label>
                                     </div>
                                 @endforeach
@@ -154,12 +159,12 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn--green">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                         </div>
-
                     </form>
+                    <div class=" col-md-6 capiObbligatori text-center my-3">* Campi obbligatori</div>
                 </div>
             </div>
         </div>

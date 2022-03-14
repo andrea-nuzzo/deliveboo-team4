@@ -1,0 +1,78 @@
+
+//Commons rule for button
+.generalBtn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background-color: transparent;
+    border: 1px solid lightgray;
+    // padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+//Pallette Button
+
+// Bottone con sfondo green DeliveBoo
+.btn--green,
+.card--header {
+    background-color: $main-color;
+    color: $white-color;
+    a{
+        color: $white-color;
+    }
+   
+}
+
+// Bottono
+.btn--green:hover {
+    color: $white-color;
+    background-color: $main-hover;
+    a {
+        color: $white-color;
+    }
+}
+
+.btn--white{
+    background-color: $white-color;
+    color: $main-color;
+    a {
+        color:$white-color;
+    }
+}
+
+.btn-back {
+    color: $main-color;
+}
+
+.btn-back:hover {
+    border: 1px solid $main-color;
+    color: $main-color;
+}
+
+
+
+
+.link-login {
+    color: $main-color;
+}
+.link-login:hover {
+    color: $main-hover;
+}
+
+
+.bcgColor{
+    background-color: lightgray;
+}
+
+.color-main {
+    color: $main-color;
+}

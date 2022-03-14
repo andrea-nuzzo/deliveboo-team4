@@ -39,14 +39,14 @@
                     {{-- login --}}
                     <button class="generalBtn btn--green d-flex align-items-center">
                         <i class="fas fa-user-circle"></i>
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                     </button>
 
                     {{-- register --}}
                     @if (Route::has('register'))
                         <button class="generalBtn btn--green mx-3 d-flex align-items-center">
                             <i class="fas fa-user-circle"></i>
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </button>
                     @endif
 
