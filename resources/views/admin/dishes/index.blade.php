@@ -21,7 +21,7 @@
                             <div class="product-image">
                                 <a href="#" class="image">
                                     @if (empty($dish->image))
-                                    <img class="pic-1" src="http://drive.google.com/uc?export=view&id=1RvAowCnXCvqajysCVqzhMseDH85cBJbo">
+                                    <img class="pic-1" src="{{asset('/storage/image/logo/placeholder.svg')}}">
                                     @else
                                         <img class="pic-1" src="{{asset("storage/{$dish->image}")}}">
                                     @endif
