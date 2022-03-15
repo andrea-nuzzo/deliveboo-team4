@@ -15,8 +15,8 @@ class TypologyController extends Controller
     }
 
     public function show($slug) {
-        $typology = Typology::where("slug", $slug)->with("users")->get();
+        $typology = Typology::where("slug", $slug)->with("users")->first();
 
-        return response()->json($typology);
+        return response()->json($typology['users']);
     }
 }

@@ -13,4 +13,10 @@ class UserController extends Controller
 
         return response()->json($users);
     }
+
+    public function show($slug) {
+        $users = User::where("slug", $slug)->with("typologies")->get();
+
+        return response()->json($users);
+    }
 }
