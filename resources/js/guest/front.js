@@ -30,6 +30,9 @@ import App from './App.vue';
 //aggiungo import del file router.js
 import router from "./router";
 
+import VueHorizontal from 'vue-horizontal';
+Vue.use(VueHorizontal);
+
 const app = new Vue({
     el: '#app',
     render: h => h(App),

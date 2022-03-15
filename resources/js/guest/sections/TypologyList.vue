@@ -2,6 +2,7 @@
   <div class="contenitore d-flex">
     
 
+      <vue-horizontal>
 
     <div v-for="typology in listTypo" :key="typology.id" class="card--typo">
         <div>{{typology.type}}</div>
@@ -9,7 +10,8 @@
             <img :src="`/storage/${typology.image}`" alt="">
         </div>
     </div>
-    
+    </vue-horizontal>
+
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
 <style lang='scss' scoped>
 
 .card--typo{
-    width: calc(100% / 10 - 10px);
+    width: calc(100% / 5 - 10px);
     margin: 0 5px;
     img {
         width:100%;
