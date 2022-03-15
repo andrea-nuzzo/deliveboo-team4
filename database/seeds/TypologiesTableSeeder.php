@@ -16,43 +16,43 @@ class TypologiesTableSeeder extends Seeder
         $typologies = [
             [
                 'name' => 'pizza',
-                'image' => '1bHQflpj4uhmW2ntZKmDd_hK_vcNg-y_w'
+                'image' => 'typologies/pizza.png'
             ],
             [
                 'name' => 'italiano',
-                'image' => '1QA4EgXEzAi35UGk8mxporB7hY-P0nxep'
+                'image' => 'typologies/pasta.png'
             ],
             [
                 'name' => 'dessert',
-                'image' => '1aQ2i91S1PiAKVpCh-EDsE6N3ByHQo0a5'
+                'image' => 'typologies/dessert.png'
             ],
             [
                 'name' => 'sushi',
-                'image' => '18tIe9EBHznAWYVa9p710GL-u3yCkJuyE'
+                'image' => 'typologies/sushi.png'
             ],
             [
                 'name' => 'poke', 
-                'image' => '1pImPM2fk8Q9eK5I4p1defUn9hbquNWus'
+                'image' => 'typologies/poke.png'
             ],
             [
                 'name' => 'americano', 
-                'image' => '1ceo7PvgNrDwpZh6XePBC46ekhu-91ffu'
+                'image' => 'typologies/barbeque-1.png'
             ],
             [
                 'name' => 'gelato', 
-                'image' => '15DNT3aljcHnd6wlL_-yQOFVbgHpDBkhx'
+                'image' => 'typologies/ice-cream.png'
             ],
             [
                 'name' => 'kebab', 
-                'image' => '1RRe_f5jtf4ElASDMnxs5-7ZOzbJz5KiO'
+                'image' => 'typologies/kebab.png'
             ],
             [
                 'name' => 'sandwich', 
-                'image' => '1HN_PrTjXZrQyksBeDz-n3FrS8G4WIiCJ'
+                'image' => 'typologies/sandwich.png'
             ],
             [
                 'name' => 'hamburger', 
-                'image' => '1ceo7PvgNrDwpZh6XePBC46ekhu-91ffu'
+                'image' => 'typologies/burgers-1.png'
             ],
 
         ];
