@@ -30,7 +30,7 @@
                 <div>
                     <a href="{{ url('/') }}">
                         {{-- {{ config('app.name', 'Laravel') }} --}}
-                        <img src="https://drive.google.com/uc?export=view&id=1AFtmmqIiVfX-1hcAgdOBmpuRSNKD5cFv" alt="Logo-DeliveBoo" width="100">
+                        <img src="{{asset('/storage/image/logo/LogoColored.png')}}" alt="Logo-DeliveBoo" width="100">
                     </a>
                 </div>
 
@@ -71,7 +71,7 @@
             <nav class="nav">
                 <div> 
                     <a href="{{ url('/') }}" class="nav_logo">
-                        <img src="https://drive.google.com/uc?export=view&id=1HFXUpedYTFC5Sv42wubUyyUvy2-nV9eB" alt="Logo-DeliveBoo" width="20">
+                        <img src="{{asset('/storage/image/logo/LogoNavbar.png')}}" alt="Logo-DeliveBoo" width="20">
                         <span class="nav_logo-name">DeliveBoo</span>
                     </a>
                     

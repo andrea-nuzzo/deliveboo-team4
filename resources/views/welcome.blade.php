@@ -80,7 +80,7 @@
             @endif
 
             <div class="content">
-                <img src="https://drive.google.com/uc?export=view&id=1AFtmmqIiVfX-1hcAgdOBmpuRSNKD5cFv" alt="Logo-DeliveBoo" width="500">
+                <img src="{{asset('/storage/image/logo/LogoColored.png')}}" alt="Logo-DeliveBoo" width="500">
                 <div>Pagina di Front-Office</div>
             </div>
         </div>
