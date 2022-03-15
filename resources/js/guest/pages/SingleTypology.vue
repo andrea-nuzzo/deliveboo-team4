@@ -1,15 +1,24 @@
 <template>
-  <div>
-      <h1>prova</h1>
-  </div>
+    <section>
+        <CardUser :usersList="typology"/>
+    </section>
 </template>
 
 <script>
+
+import CardUser from "../components/commons/CardUser.vue";
+
 export default {
+
     name: "SingleTypology",
+
+    components : {
+        CardUser
+    },
+
     data() {
         return {
-            typology: {}
+            typology: []
         }
     },
 
@@ -22,6 +31,7 @@ export default {
             //     this.$router.push({name: 'page-404'})
             // });
     }
+
 }
 
 </script>
