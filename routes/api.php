@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get("/typologies", "Api\TypologyController@index");
 Route::get("/typologies/{slug}", "Api\TypologyController@show");
+Route::get("/users", "Api\UserController@index");

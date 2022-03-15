@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 // import About from "./pages/About";
 // import SinglePost from "./pages/SinglePost";
 // import Categories from "./pages/Categories";
-// import SingleCategory from "./pages/SingleCategory";
+import SingleTypology from "./pages/SingleTypology";
 // import PageNotFound from "./pages/PageNotFound";
 
 
@@ -35,11 +35,11 @@ const router = new VueRouter({
         //     name: "categories",
         //     component: Categories,
         // },
-        // {
-        //     path: "/categorie/:slug",
-        //     name: "single-category",
-        //     component: SingleCategory,
-        // },
+        {
+            path: "/tipologie/:slug",
+            name: "single-typology",
+            component: SingleTypology,
+        },
         // // mostrare 404
         // {
         //     path:'*',
