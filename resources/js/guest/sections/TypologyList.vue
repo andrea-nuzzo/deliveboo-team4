@@ -6,7 +6,7 @@
     <div v-for="typology in listTypo" :key="typology.id" class="card--typo">
         <div>{{typology.type}}</div>
         <div>
-            <img :src="`storage/${typology.image}`" alt="">
+            <img :src="`/storage/${typology.image}`" alt="">
         </div>
     </div>
     

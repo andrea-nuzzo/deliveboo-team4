@@ -1,5 +1,5 @@
 <template> 
-    <header class="header">
+    <header class="header pt-2">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/home">
                 <img src="https://drive.google.com/uc?export=view&id=1AFtmmqIiVfX-1hcAgdOBmpuRSNKD5cFv" alt="Logo-DeliveBoo" width="100">
@@ -11,22 +11,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
                 <form class="form-inline my-2 my-lg-0 mr-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Cerca Ristorante" aria-label="Search">
-                    <button class="btn btn--green my-2 my-sm-0" type="submit">Cerca</button>
+                    <input class="form-control mr-sm-2 paddingBtn" type="search" placeholder="Cerca Ristorante" aria-label="Search">
+                    <button class="generalBtn btn--green mx-3 nav-link" type="submit">Cerca</button>
                 </form>
 
-                <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <button class="btn btn--white">
-                            <a class="nav-link " href="/login"><i class="fa-solid fa-user-astronaut"></i> Log in</a>
-                        </button>
-                    </li>
-                    <li class="nav-item ">
-                        <button class="btn btn--white">
-                            <a class="nav-link" href="/register"><i class="fa-solid fa-user-plus"></i> Registrati</a>
-                        </button>
-                    </li>
-                </ul>
+                <button class="generalBtn btn--white d-flex align-items-center mx-3">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    <a class="nav-link" href="/login">Accedi</a>
+                </button>
+
+                <button class="generalBtn btn--white d-flex align-items-center">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <a class="nav-link" href="/register">Registrati</a>
+                </button>
             </div>
         </nav>
     </header>
