@@ -1,10 +1,9 @@
 <template>
     <div>
         <TypologyList :listTypo="typologies"/>
-        <div v-for="user in users" :key="user.id">
-        <div>{{user.name}}</div>
-        <div>
-            <img :src="`storage/${user.image}`" alt="">
+
+        <div class="container-fluid mt-5">
+            <CardUser :usersList="users"/>
         </div>
     </div>
 
@@ -12,11 +11,14 @@
 </template>
 
 <script>
-import TypologyList from '../sections/TypologyList.vue'
+import TypologyList from '../sections/TypologyList.vue';
+import CardUser from "../components/commons/CardUser.vue";
+
 export default {
     name: 'Home',
     components: {
         TypologyList,
+        CardUser,
     },
     data() {
         return {
