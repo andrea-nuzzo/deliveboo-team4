@@ -1,6 +1,6 @@
 <template>
       <div class="container-fluid mt-3">
-        <vue-horizontal>
+        <vue-horizontal responsive class="mx-4">
             <div v-for="typology in listTypo" :key="typology.id" class="card--typo">
                 <div>{{typology.type}}</div>
                 <div class="containerImage">
@@ -21,10 +21,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-
+    
 
 .card--typo{
-    width: calc(100% / 6 - 10px);
     margin: 0 5px;
     
     img {
