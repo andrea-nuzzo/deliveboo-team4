@@ -23,3 +23,5 @@ Route::get("/typologies", "Api\TypologyController@index");
 Route::get("/typologies/{slug}", "Api\TypologyController@show");
 Route::get("/users", "Api\UserController@index");
 Route::get("/users/{slug}", "Api\UserController@show");
+Route::get("/dishes", "Api\DishController@index");
+Route::get("/dishes/{id}", "Api\DishController@show");

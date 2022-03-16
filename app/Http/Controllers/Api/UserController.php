@@ -15,7 +15,7 @@ class UserController extends Controller
     }
 
     public function show($slug) {
-        $users = User::where("slug", $slug)->with("typologies")->get();
+        $users = User::where("slug", $slug)->with("dishes")->with('typologies')->first();
 
         return response()->json($users);
     }

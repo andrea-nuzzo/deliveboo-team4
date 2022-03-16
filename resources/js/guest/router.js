@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 // import SinglePost from "./pages/SinglePost";
 // import Categories from "./pages/Categories";
 import SingleTypology from "./pages/SingleTypology";
+import SingleRestaurant from "./pages/SingleRestaurant";
 // import PageNotFound from "./pages/PageNotFound";
 
 
@@ -39,6 +40,11 @@ const router = new VueRouter({
             path: "/tipologie/:slug",
             name: "single-typology",
             component: SingleTypology,
+        },
+        {
+            path: "/ristorante/:slug",
+            name: "single-restaurant",
+            component: SingleRestaurant,
         },
         // // mostrare 404
         // {
