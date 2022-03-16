@@ -54,14 +54,13 @@
                 </span>
                 <div>
                   <button @click="addToCart(dish)" class="btn">Aggiungi al carrello</button>
-                  <button @click="addToCart(dish)">-</button>
                 </div>
               </div>
             </div>
         </div>
       </div>
       <div class="col-4">
-        <Cart/>
+        <Cart :carrello="carrello"/>
       </div>
 
 
@@ -79,7 +78,7 @@ export default {
     data() {
       return {
         restaurant: [],
-        carrello: []
+        carrello: [],
       }
     },
     created() {
@@ -91,38 +90,35 @@ export default {
     methods: {
 
       addToCart(dish) {
-            let newItem = {
-                risto_id: dish.user_id,
-                id: dish.id,
-                name: dish.name,
-                price: dish.price,
-                qty: 1
-            };
-            console.log(newItem);
-            if (this.carrello.length == 0) {
-                this.carrello.push(newItem);
-            } else {
-            //     // non si può aggiungere piatti da più ristoranti
-            //     let rist_id = [
-            //         ...new Set(this.carrello.map(dish => dish.risto_id)) 
-            //         // metto tutti gli id risto dei piatti in un arr e rimuovo i duplicati... ne avrò quindi sempre uno, quello del primo piatto che finisce nel carrello
-            //     ];
-            //     rist_id = rist_id[0]; // ricavo il number dell'id risto
-            //     let ids = this.carrello.map(dish => dish.id);
-            //     if (ids.includes(newItem.id)) {
-            //         this.carrello.forEach(element => {
-            //             if (element.id == newItem.id) {
-            //                 element.qty++;
-            //             }
-            //         });
-            //     } else {
-            //         newItem.risto_id == rist_id
-            //             ? this.carrello.push(newItem)
-            //             : alert(
-            //                   "Non puoi aggiungere piatti da un altro ristorante"
-            //               );
-            //     }
-            // },
+
+        let newItem = {
+            risto_id: dish.user_id,
+            id: dish.id,
+            name: dish.name,
+            price: dish.price,
+            quantity: 1
+        };
+
+        // Se il carrello è vuoto aggiungo il piatto
+        if(this.carrello.length == 0){
+          this.carrello.push(newItem);
+        } else{
+
+          // Se il carrello no è vuoto controllo che il piatto non abbia lo stesso id
+          let ids = this.carrello.map(dish => dish.id);
+            // Se ha lo stesso id aumneto la quantità ...
+            if (ids.includes(newItem.id)) {
+                this.carrello.forEach(element => {
+                    if (element.id == newItem.id) {
+                        element.quantity++;
+                    }
+                });
+            } 
+            // Altrimenti pusho il nuovo piatto
+            else {
+                this.carrello.push(newItem)
+            }
+        }
       }
     }
 }
