@@ -26,5 +26,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     showNavbar('header-toggle','nav-bar','body-pd','header');
 
-    // Your code to run since DOM is loaded and ready
+   
     });
+
+// Funzione modale per la cancellazione del piatto
+$('.show_confirm').click(function(event) {
+    var form =  $(this).closest("form");
+    var name = $(this).data("name");
+    event.preventDefault();
+    swal({
+        title: `Sei sicuro di voler cancellare il piatto?`,
+        text: "Se confermi, non potrai più tornare indietro",
+        icon: "error",
+        buttons: ["Annulla", true],
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+        form.submit();
+        }
+    });
+});
