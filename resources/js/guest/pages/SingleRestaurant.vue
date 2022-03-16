@@ -119,7 +119,7 @@ export default {
                 this.carrello.push(newItem)
             }
         }
-      }
+      },
     }
 }
 </script>
