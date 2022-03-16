@@ -1,18 +1,14 @@
 <template>
-  <div class="contenitore d-flex">
-    
-
-      <vue-horizontal>
-
-    <div v-for="typology in listTypo" :key="typology.id" class="card--typo">
-        <div>{{typology.type}}</div>
-        <div>
-            <img :src="`/storage/${typology.image}`" alt="">
-        </div>
-    </div>
-    </vue-horizontal>
-
-  </div>
+      <div class="container-fluid mt-3">
+        <vue-horizontal>
+            <div v-for="typology in listTypo" :key="typology.id" class="card--typo">
+                <div>{{typology.type}}</div>
+                <div class="containerImage">
+                    <img :src="`/storage/${typology.image}`" alt="">
+                </div>
+            </div>
+        </vue-horizontal>
+      </div>
 </template>
 
 <script>
@@ -26,12 +22,13 @@ export default {
 
 <style lang='scss' scoped>
 
+
 .card--typo{
-    width: calc(100% / 5 - 10px);
+    width: calc(100% / 6 - 10px);
     margin: 0 5px;
+    
     img {
         width:100%;
-
     }
 }
 </style>
