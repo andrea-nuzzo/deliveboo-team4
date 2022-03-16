@@ -50,44 +50,24 @@
                                     <li>
                                         <form action="{{route("dishes.destroy", $dish->id)}}" method="POST">
                                             @csrf
-                                            @method("DELETE")
-                                            <button type="submit" class="btn"><i class="fa-solid fa-trash-can show_confirm"></i></button>
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button  type="submit" class="btn show_confirm"><i class="fa-solid fa-trash-can "></i></button>
                                         </form>
                                     </li>
                                 </ul>
-                                {{-- Test Modale --}}
+
+                                {{-- script modale cancellazione piatto --}}
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-                                <script type="text/javascript">
- 
-                                    $('.show_confirm').click(function(event) {
-                                         var form =  $(this).closest("form");
-                                         var name = $(this).data("name");
-                                         console.log(name);
-                                         event.preventDefault();
-                                         swal({
-                                             title: `Sei sicuro di voler cancellare il piatto?`,
-                                             text: "Se lo cancelli, non potrai più tornare indietro",
-                                             icon: "warning",
-                                             buttons: true,
-                                             dangerMode: true,
-                                         })
-                                         .then((willDelete) => {
-                                           if (willDelete) {
-                                             form.submit();
-                                           }
-                                         });
-                                     });
-                               </script>
-
-
-
-
+                                
                             </div>
+
                             <div class="product-content">
                                 <h3 class="title">{{$dish->name}}</h3>
                                 <div class="price">Prezzo: € {{$dish->price}}</div>
                             </div>
+
                         </div>
+                        
                     </div>
                 @endif
                 @endforeach
