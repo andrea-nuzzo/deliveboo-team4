@@ -40,12 +40,6 @@
                             <a href="{{route("dishes.edit", $dish->id)}}"><button type="button" class="btn btn--green">Modifica</button></a>
                         
                             <a href="{{route("dishes.index")}}"><button type="button" class="btn btn-back mx-3">Ritorna alla lista</button></a>
-                
-                            <form action="{{route("dishes.destroy", $dish->id)}}" method="POST">
-                                @csrf
-                                @method("DELETE")
-                                <button type="submit" class="btn btn-back"><i class="fa-solid fa-trash-can "></i></button>
-                            </form>
                         </div>
                     </div>
                 </div>
