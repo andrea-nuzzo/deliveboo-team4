@@ -125,7 +125,7 @@
                             <label for="typologies" class="col-md-4 col-form-label text-md-right">{{ __('Tipologie *') }}</label>
                             <div class="col-md-6">
                                 @foreach ($typologies as $typology)
-                                    <div class="form-check form-check-inline col-3" id="INPUTtype">
+                                    <div class="form-check form-check-inline col-3">
                                         <input type="checkbox" id="{{$typology->slug}}" name="typologies[]" class="form-check-input" 
                                         value="{{$typology->id}}" {{in_array($typology->id, old("typologies", [])) ? 'checked' : ''}}>
                                         <label class="form-check-label" for="{{$typology->slug}}">{{$typology->type}}</label>
@@ -164,7 +164,7 @@
                         {{-- Button Register --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" id="btnRegister" class="btn btn--green">
+                                <button type="submit" class="btn btn--green">
                                     {{ __('Registrati') }}
                                 </button>
                             </div>
