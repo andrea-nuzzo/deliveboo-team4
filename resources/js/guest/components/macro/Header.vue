@@ -10,11 +10,13 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="form-inline my-2 my-lg-0 mr-auto">
+                <!-- <form class="form-inline my-2 my-lg-0 mr-auto">
                     <input class="form-control mr-sm-2 paddingBtn" type="search" placeholder="Cerca Ristorante" aria-label="Search">
                     <button class="generalBtn btn--green mx-3 nav-link" type="submit">Cerca</button>
-                </form>
-
+                </form> -->
+                <div class="mr-auto">
+                    
+                </div>
                 <button class="generalBtn btn--white d-flex align-items-center mx-3">
                     <i class="fa-solid fa-user-astronaut"></i>
                     <a class="nav-link" href="/login">Accedi</a>

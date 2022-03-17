@@ -26,12 +26,8 @@
                                     @else
                                         <img class="pic-1" src="{{asset("storage/{$dish->image}")}}">
                                     @endif
-                                   
-                                    {{-- <img class="pic-2" src="images/img-2.jpg"> --}}
                                 </a>
-                                {{-- <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
-                                    <i class="far fa-heart"></i>
-                                </a> --}}
+                                
                                 <ul class="product-links">
                                     <li>
                                         <a href="{{route("dishes.show", $dish->id)}}">
@@ -64,6 +60,18 @@
                             <div class="product-content">
                                 <h3 class="title">{{$dish->name}}</h3>
                                 <div class="price">Prezzo: € {{$dish->price}}</div>
+                            
+                                @if($dish->visible)
+                                <div class="d-flex align-items-center">
+                                    <span class="price">Visibile :</span>
+                                   <i class="fa-solid fa-circle-check text-success mx-2"></i>
+                                </div>
+                                @else
+                                    <div class="d-flex align-items-center">
+                                        <span class="price">Visibile :</span>
+                                        <i class="fa-solid fa-circle-xmark text-danger mx-2"></i>
+                                    </div>
+                                @endif
                             </div>
 
                         </div>
