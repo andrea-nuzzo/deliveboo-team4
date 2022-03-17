@@ -10,7 +10,7 @@
 
 
                 <div class="card-body">
-                    <form method="POST" name="myForm" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('register') }}" id="registration_form"  enctype="multipart/form-data">
                         @csrf
 
                         {{-- Section Name --}}
@@ -18,7 +18,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome Ristorante *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required maxlength="255" autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -158,7 +158,7 @@
                         {{-- Button Register --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn--green">
+                                <button type="submit" id="registration_submit" class="btn btn--green">
                                     {{ __('Registrati') }}
                                 </button>
                             </div>

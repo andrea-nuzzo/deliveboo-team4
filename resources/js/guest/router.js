@@ -4,11 +4,8 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import Home from "./pages/Home";
-// import About from "./pages/About";
-// import SinglePost from "./pages/SinglePost";
-// import Categories from "./pages/Categories";
-import SingleTypology from "./pages/SingleTypology";
 import SingleRestaurant from "./pages/SingleRestaurant";
+import PageCart from "./pages/PageCart";
 // import PageNotFound from "./pages/PageNotFound";
 
 
@@ -31,15 +28,10 @@ const router = new VueRouter({
         //     name: "single-post",
         //     component: SinglePost,
         // },
-        // {
-        //     path: "/categorie",
-        //     name: "categories",
-        //     component: Categories,
-        // },
         {
-            path: "/tipologie/:slug",
-            name: "single-typology",
-            component: SingleTypology,
+            path: "/carrello",
+            name: "page-cart",
+            component: PageCart,
         },
         {
             path: "/ristorante/:slug",
