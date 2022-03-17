@@ -1,5 +1,5 @@
 require('./bootstrap');
-
+require('./validations/validation_register');
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
