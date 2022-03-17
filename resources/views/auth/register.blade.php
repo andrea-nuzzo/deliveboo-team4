@@ -103,7 +103,7 @@
                         <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required minlength="9" maxlength="15" autocomplete="phone" autofocus>
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
                                 @foreach ($typologies as $typology)
                                     <div class="form-check form-check-inline col-3">
                                         <input type="checkbox" id="{{$typology->slug}}" name="typologies[]" class="form-check-input" 
-                                        required oninvalid="this.setCustomValidity('Selezionare una o più tipologie')" oninput="this.setCustomValidity('')"
+                                        {{-- required oninvalid="this.setCustomValidity('Selezionare una o più tipologie')" oninput="this.setCustomValidity('')" --}}
                                         value="{{$typology->id}}" {{in_array($typology->id, old("typologies", [])) ? 'checked' : ''}}>
                                         <label class="form-check-label" for="{{$typology->slug}}">{{$typology->type}}</label>
                                     </div>

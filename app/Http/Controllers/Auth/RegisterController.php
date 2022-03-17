@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'address' => ['required', 'string'],
             'p_iva' => ['required', 'numeric', 'digits:11','unique:users'],
             'image' => ['required', 'image', 'max:2048'],
-            'phone' => ['required', 'numeric', 'digits_between:9,15'],
+            'phone' => ['nullable', 'numeric', 'digits_between:9,15'],
         ]);
     }
 
