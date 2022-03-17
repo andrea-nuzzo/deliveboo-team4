@@ -44,16 +44,18 @@
         </h3>
         <div class="row">
             <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
-              <div>{{dish.name}}</div>
-              <div class="menu-img">
-                  <img :src="`/storage/${dish.image}`" alt="">
-              </div>
-              <div>
-                <span>
-                  {{dish.price}} 
-                </span>
+              <div v-show="dish.visible">
+                <div>{{dish.name}}</div>
+                <div class="menu-img">
+                    <img :src="`/storage/${dish.image}`" alt="">
+                </div>
                 <div>
-                  <button @click="addToCart(dish)" class="btn">Aggiungi al carrello</button>
+                  <span>
+                    {{dish.price}} 
+                  </span>
+                  <div>
+                    <button @click="addToCart(dish)" class="btn">Aggiungi al carrello</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -81,12 +83,20 @@ export default {
         carrello: [],
       }
     },
+
     created() {
       axios.get(`/api/users/${this.$route.params.slug}`)
-            .then((response) => {
-                this.restaurant = response.data;
-            });
+        .then((response) => {
+            this.restaurant = response.data;
+        });
     },
+
+    mounted() {
+      if (localStorage.carrello) {
+          this.carrello = JSON.parse(localStorage.getItem("carrello"));
+        }
+    },
+
     methods: {
 
       addToCart(dish) {
@@ -104,7 +114,7 @@ export default {
           this.carrello.push(newItem);
         } else{
 
-          // Se il carrello no è vuoto controllo che il piatto non abbia lo stesso id
+          // Se il carrello non è vuoto controllo che il piatto non abbia lo stesso id
           let ids = this.carrello.map(dish => dish.id);
             // Se ha lo stesso id aumneto la quantità ...
             if (ids.includes(newItem.id)) {
@@ -119,6 +129,9 @@ export default {
                 this.carrello.push(newItem)
             }
         }
+
+        localStorage.setItem("carrello", JSON.stringify(this.carrello));
+
       },
     }
 }
