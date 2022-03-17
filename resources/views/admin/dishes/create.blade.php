@@ -15,7 +15,10 @@
             id="name" 
             placeholder="Aggiungi il nome del piatto" 
             value="{{old('name')}}"
-            required oninvalid="this.setCustomValidity('Il campo Nome è obbligatorio')">
+            required
+            oninvalid="this.setCustomValidity('Il campo Nome è obbligatorio')"
+            oninput="this.setCustomValidity('')"
+            >
 
             @error('name')
              <div class="alert alert-danger my-2"> {{$message}}</div>
@@ -31,7 +34,10 @@
             id="ingredients" 
             placeholder="Aggiungi gli ingredienti" 
             value="{{old('ingredients')}}"
-            required oninvalid="this.setCustomValidity('Il campo Ingredienti è obbligatorio')">
+            required 
+            oninvalid="this.setCustomValidity('Il campo Ingredienti è obbligatorio')"
+            oninput="this.setCustomValidity('')"
+            >
             
             @error('ingredients')
              <div class="alert alert-danger my-2"> {{$message}}</div>
@@ -64,7 +70,10 @@
                 id="price" 
                 placeholder="Aggiungi il prezzo" 
                 value="{{old('price')}}" 
-                required oninvalid="this.setCustomValidity('Il campo Prezzo è obbligatorio')">
+                required 
+                oninvalid="this.setCustomValidity('Il campo Prezzo è obbligatorio')"
+                oninput="this.setCustomValidity('')"
+                >
             </div>
 
             @error('price')

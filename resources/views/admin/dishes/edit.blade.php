@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if($dish->user_id == Auth::id())
 <div class="container">
     <form action="{{route("dishes.update", $dish->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -10,7 +11,9 @@
         <div class="form-group">
             <label for="name">Nome *</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Aggiungi il nome del piatto" value="{{old('name', $dish->name)}}"
-            required oninvalid="this.setCustomValidity('Il campo Nome è obbligatorio')">
+            required
+            oninvalid="this.setCustomValidity('Il campo Nome è obbligatorio')"
+            oninput="this.setCustomValidity('')">
 
             @error('name')
              <div class="alert alert-danger my-2"> {{$message}}</div>
@@ -20,7 +23,10 @@
         {{-- Section Ingredients --}}
         <div class="form-group">
             <label for="ingredients">Ingredienti *</label>
-            <input type="text" class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" placeholder="Aggiungi gli ingredienti" value="{{old('ingredients', $dish->ingredients)}}" required oninvalid="this.setCustomValidity('Il campo Ingredienti è obbligatorio')">
+            <input type="text" class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" placeholder="Aggiungi gli ingredienti" value="{{old('ingredients', $dish->ingredients)}}" 
+            required 
+            oninvalid="this.setCustomValidity('Il campo Ingredienti è obbligatorio')"
+            oninput="this.setCustomValidity('')">
             
             @error('ingredients')
              <div class="alert alert-danger my-2"> {{$message}}</div>
@@ -43,7 +49,10 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">€</span>
                 </div>
-                <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Aggiungi il prezzo" value="{{old('price', $dish->price)}}" required oninvalid="this.setCustomValidity('Il campo Prezzo è obbligatorio')">
+                <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Aggiungi il prezzo" value="{{old('price', $dish->price)}}" 
+                required 
+                oninvalid="this.setCustomValidity('Il campo Prezzo è obbligatorio')"
+                oninput="this.setCustomValidity('')">
             </div>
 
             @error('price')
@@ -106,4 +115,13 @@
     
     </form>
 </div>
+@else
+    <div class="container position-fixed">
+        <div class="row my-5">
+            <div class="col d-flex justify-content-center align-items-center">
+                <h2>Non sei autorizzato a visionare il piatto</h2>
+            </div>
+        </div>
+    </div>
+@endif
 @endsection
