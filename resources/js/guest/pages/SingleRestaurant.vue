@@ -131,7 +131,7 @@ export default {
         }
 
         localStorage.setItem("carrello", JSON.stringify(this.carrello));
-
+        console.log('Sono localSorage:',localStorage)
       },
     }
 }

@@ -138,45 +138,6 @@
                             </div>
                         </div>
 
-                        {{-- Funzione per la validazione dei checkboxes  --}}
-                        <script>
-
-                            (function() {
-
-                                const form = document.querySelector('#sectionForm');
-                                const checkboxes = form.querySelectorAll('input[type=checkbox]');
-                                const checkboxLength = checkboxes.length;
-                                const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
-
-                                function init() {
-                                    if (firstCheckbox) {
-                                        for (let i = 0; i < checkboxLength; i++) {
-                                            checkboxes[i].addEventListener('change', checkValidity);
-                                        }
-
-                                        checkValidity();
-                                    }
-                                }
-
-                                function isChecked() {
-                                    for (let i = 0; i < checkboxLength; i++) {
-                                        if (checkboxes[i].checked) return true;
-                                    }
-
-                                    return false;
-                                }
-
-                                function checkValidity() {
-                                    const errorMessage = !isChecked() ? 'Seleziona almeno una tipologia' : '';
-                                    firstCheckbox.setCustomValidity(errorMessage);
-                                }
-
-                                init();
-
-                            })();
-
-                        </script>
-
                         {{-- Section Upload Image --}}
                         <div class="form-group row">
                             <label for="image" class="col-md-4 col-form-label text-md-right">{{__('Aggiungi un immagine')}}</label>
