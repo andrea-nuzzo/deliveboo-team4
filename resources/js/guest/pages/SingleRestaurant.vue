@@ -54,7 +54,7 @@
                     {{dish.price}} 
                   </span>
                   <div>
-                    <button @click="addToCart(dish)" class="btn">Aggiungi al carrello</button>
+                    <button @click="addToCart(dish)" class="generalBtn btn--green">Aggiungi al carrello</button>
                   </div>
                 </div>
               </div>
@@ -74,9 +74,11 @@
 import Cart from '../components/commons/Cart.vue';
 export default {
     name: 'SingleRestaurant',
+
     components: {
       Cart,
     },
+
     data() {
       return {
         restaurant: [],
@@ -131,9 +133,8 @@ export default {
         }
 
         localStorage.setItem("carrello", JSON.stringify(this.carrello));
-        console.log('Sono localSorage:',localStorage)
-      },
-    }
+      }
+    },
 }
 </script>
 
