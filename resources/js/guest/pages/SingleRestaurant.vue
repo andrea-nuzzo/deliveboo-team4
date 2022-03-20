@@ -102,6 +102,8 @@ export default {
     methods: {
 
       addToCart(dish) {
+        console.log(...new Set(this.carrello.map(dish => dish.risto_id)))
+         let first_restaurant;
 
         let newItem = {
             risto_id: dish.user_id,
@@ -114,24 +116,27 @@ export default {
         // Se il carrello è vuoto aggiungo il piatto
         if(this.carrello.length == 0){
           this.carrello.push(newItem);
-        } else{
 
+          //Setto una variabile che prenderà il risto ID del primo piatto inserito nel carrello
+          first_restaurant = this.carrello.risto_id;
+        } else{
           // Se il carrello non è vuoto controllo che il piatto non abbia lo stesso id
           let ids = this.carrello.map(dish => dish.id);
-            // Se ha lo stesso id aumneto la quantità ...
-            if (ids.includes(newItem.id)) {
-                this.carrello.forEach(element => {
-                    if (element.id == newItem.id) {
-                        element.quantity++;
-                    }
-                });
-            } 
-            // Altrimenti pusho il nuovo piatto
-            else {
-                this.carrello.push(newItem)
-            }
+          // Se ha lo stesso id aumento la quantità ...
+          if (ids.includes(newItem.id)) {
+              this.carrello.forEach(element => {
+                  if (element.id == newItem.id) {
+                      element.quantity++;
+                  }
+              });
+          } 
+          // Altrimenti pusho il nuovo piatto
+          else {
+            // Sempre che l'id dei ristoranti coincida altrimento sollevo un eccezione
+            newItem.risto_id == first_restaurant ? this.carrello.push(newItem) : alert
+            ("Non puoi aggiungere piatti da un altro ristorante");
+          }
         }
-
         localStorage.setItem("carrello", JSON.stringify(this.carrello));
       }
     },
