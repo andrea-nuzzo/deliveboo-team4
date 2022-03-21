@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 Route::get("/typologies", "Api\TypologyController@index");
@@ -25,3 +25,6 @@ Route::get("/users", "Api\UserController@index");
 Route::get("/users/{slug}", "Api\UserController@show");
 Route::get("/dishes", "Api\DishController@index");
 Route::get("/dishes/{id}", "Api\DishController@show");
+
+
+Route::post("/order", "Api\OrderController@store");

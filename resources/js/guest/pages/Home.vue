@@ -3,19 +3,13 @@
          <div class="container-fluid mt-3">
             <vue-horizontal class="mx-4">
                 <div v-for="(typology, index) in typologies" :key="typology.id" class="card--typo" :class="{ ciao : active.includes(index)}" @click="activeTypology(index)">
-                    <!-- <router-link :to="{ name: 'single-typology', params: {slug: typology.slug}}"> -->
-                        <div class="containerImage"  @click="filter(typology.id)">
-                            <img :src="`/storage/${typology.image}`" alt="">
-                            <div class="typologyName">{{typology.type}}</div>
-                        </div>
-                    <!-- </router-link> -->
+                    <div class="containerImage"  @click="filter(typology.id)">
+                        <img :src="`/storage/${typology.image}`" alt="">
+                        <div class="typologyName">{{typology.type}}</div>
+                    </div>
                 </div>
             </vue-horizontal>
-            <div @click=" allDishes()">
-                tutti i ristoranti
-            </div>
       </div>
-
 
         <div class="container-fluid mt-5">
             <CardUser :usersList="users"/> 
@@ -60,14 +54,11 @@ export default {
     methods: {
 
         activeTypology(index){
-             if(!this.active.includes(index)){
+            if(!this.active.includes(index)){
                 this.active.push(index);
-            }
-            else {
+            }else {
                 this.active.splice(this.active.indexOf(index), 1);
             }
-            console.log(this.active);
-
         },
         
         filter(id) {
@@ -92,13 +83,6 @@ export default {
                 })
             }
         },
-
-        allDishes() {
-             axios.get(`/api/users`)
-            .then((response) => {
-                this.users = response.data;
-            })
-        }
     }
 
 }
