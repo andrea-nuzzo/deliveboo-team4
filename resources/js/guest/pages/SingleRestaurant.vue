@@ -1,11 +1,11 @@
-§<template>
+<template>
   <div class="restaurant--container">
     <div class="row">
-      <div class="img--restaurant col-xs-10 col-sm-6 col-lg-5">
+      <div class="img--restaurant col-xs-10 col-sm-6 col-lg-5 py-3 pl-5">
         <img :src="`/storage/${restaurant.image}`" alt="">
       </div>
       <!-- inizio colonna di dx -->
-      <div class="col-xs-12 col-sm-6 col-lg-7">
+      <div class="col-xs-12 col-sm-6 col-lg-7 py-3 px-5 ">
         <div>
           <h2>{{restaurant.name}}</h2>
         </div>
@@ -17,44 +17,35 @@
         </div>
 
         <!-- informazioni -->
-        <div>
-          <p>
-            <a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Informazioni: 
-            </a>
-
-          </p>
-          <div class="collapse" id="collapseExample">
-            <div class="pl-3">
-              <div>indirizzo: {{restaurant.address}}</div>
-              <div>{{restaurant.email}}</div>
-              <div>{{restaurant.phone}}</div>
-            </div>
-          </div>
+        <div class="information my-3">
+          <div><i class="fa-solid fa-phone mr-2"></i>{{restaurant.phone}}</div>
+          <div><i class="fa-solid fa-map-location-dot mr-2 my-2"></i>{{restaurant.address}}</div>
+          <div><i class="fa-solid fa-envelope mr-2"></i>{{restaurant.email}}</div>
         </div>
         <!-- fine informazioni -->
+
       </div>
       <!-- fine colonna di dx -->
     </div>
+
     <div class="row piatti-carrello">
       <div class="col-8">
         <!-- inizio menu -->
-        <h3>
-          Menu
-        </h3>
-        <div class="row">
+        <div>
             <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
               <div v-show="dish.visible">
-                <div>{{dish.name}}</div>
-                <div class="menu-img">
-                    <img :src="`/storage/${dish.image}`" alt="">
-                </div>
-                <div>
-                  <span>
-                    {{dish.price}} 
-                  </span>
-                  <div>
-                    <button @click="addToCart(dish)" class="generalBtn btn--green">Aggiungi al carrello</button>
+                <div class="card card-dish mb-3" @click="addToCart(dish)">
+                  <div class="row no-gutters">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{dish.name}}</h5>
+                        <p class="card-text">{{dish.ingredients}}</p>
+                        <p class="card-text"><small class="text-muted">{{dish.price}}</small></p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <img :src="`/storage/${dish.image}`" alt="">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -102,8 +93,7 @@ export default {
     methods: {
 
       addToCart(dish) {
-        console.log(...new Set(this.carrello.map(dish => dish.risto_id)))
-         let first_restaurant;
+
 
         let newItem = {
             risto_id: dish.user_id,
@@ -113,27 +103,34 @@ export default {
             quantity: 1
         };
 
+       
+
         // Se il carrello è vuoto aggiungo il piatto
         if(this.carrello.length == 0){
           this.carrello.push(newItem);
-
-          //Setto una variabile che prenderà il risto ID del primo piatto inserito nel carrello
-          first_restaurant = this.carrello.risto_id;
         } else{
+
+          let firstDishCart = [
+            ...new Set(this.carrello.map(dish => dish.risto_id))
+          ];
+
+          firstDishCart = firstDishCart[0]; 
+
           // Se il carrello non è vuoto controllo che il piatto non abbia lo stesso id
-          let ids = this.carrello.map(dish => dish.id);
+          let sameDishId = this.carrello.map(dish => dish.id);
           // Se ha lo stesso id aumento la quantità ...
-          if (ids.includes(newItem.id)) {
+          if (sameDishId.includes(newItem.id)) {
               this.carrello.forEach(element => {
                   if (element.id == newItem.id) {
                       element.quantity++;
                   }
               });
           } 
+
           // Altrimenti pusho il nuovo piatto
           else {
             // Sempre che l'id dei ristoranti coincida altrimento sollevo un eccezione
-            newItem.risto_id == first_restaurant ? this.carrello.push(newItem) : alert
+            firstDishCart == newItem.risto_id  ? this.carrello.push(newItem) : alert
             ("Non puoi aggiungere piatti da un altro ristorante");
           }
         }
@@ -150,9 +147,10 @@ export default {
 .img--restaurant {
   img {
     width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
   }
 }
-
 .puntino {
   font-size: 7px;
 }
@@ -166,11 +164,31 @@ export default {
     border: 1px solid;
   }
 }
+.information i {
+  color: white;
+  background-color: #00ccbc;
+  padding: 5px;
+  border-radius: 50%;
+}
 
+div.card-dish {
+  max-height: 100px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+  transition: box-shadow 0.2s ease-in-out;
 
-.menu-img {
-  img {
-    width: 50%;
+  &:hover {
+      cursor: pointer;
+      box-shadow: 0 22px 24px 0 rgb(0 0 0 / 8%);
+  }
+  .card-text{
+    overflow: hidden;
+  }
+  img{
+    height: inherit;
+    width: inherit;
   }
 }
+
 </style>
