@@ -4,14 +4,14 @@
             <vue-horizontal class="mx-4">
                 <div v-for="typology in typologies" :key="typology.id" class="card--typo">
                     <!-- <router-link :to="{ name: 'single-typology', params: {slug: typology.slug}}"> -->
-                        <div class="containerImage" @click="svuotaArray(typology.slug)">
+                        <div class="containerImage" @click="filter(typology.id)">
                             <img :src="`/storage/${typology.image}`" alt="">
                             <div class="typologyName">{{typology.type}}</div>
                         </div>
                     <!-- </router-link> -->
                 </div>
             </vue-horizontal>
-            <div @click="tutti()">
+            <div @click=" allDishes()">
                 tutti i ristoranti
             </div>
       </div>
@@ -35,6 +35,7 @@ export default {
         return {
             typologies: [],
             users: [],
+            filterTypologies: [],
         }
     },
     created() {
@@ -56,15 +57,21 @@ export default {
     },
 
     methods: {
-        svuotaArray(slug) {
-            this.users = [];
-            axios.get(`/api/typologies/${slug}`)
-            .then((response) => {
-                console.log(response.data);
-                this.users = response.data;
-            });
+        
+        async filter(id) {
+            if(!this.filterTypologies.includes(id)){
+                this.filterTypologies.push(id);
+            }else{
+                this.filterTypologies.splice(this.filterTypologies.indexOf(id), 1);
+            }
+
+
+           await axios.get(`/typologies/` + this.filterTypologie)
+            .then((response) => {console.log(response.data)
+                })
         },
-        tutti() {
+
+        allDishes() {
              axios.get(`/api/users`)
             .then((response) => {
                 this.users = response.data;
