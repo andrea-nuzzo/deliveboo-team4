@@ -2,9 +2,9 @@
     <div>
          <div class="container-fluid mt-3">
             <vue-horizontal class="mx-4">
-                <div v-for="typology in typologies" :key="typology.id" class="card--typo">
+                <div v-for="(typology, index) in typologies" :key="typology.id" class="card--typo" :class="{ ciao : active.includes(index)}" @click="activeTypology(index)">
                     <!-- <router-link :to="{ name: 'single-typology', params: {slug: typology.slug}}"> -->
-                        <div class="containerImage" @click="filter(typology.id)">
+                        <div class="containerImage"  @click="filter(typology.id)">
                             <img :src="`/storage/${typology.image}`" alt="">
                             <div class="typologyName">{{typology.type}}</div>
                         </div>
@@ -18,7 +18,7 @@
 
 
         <div class="container-fluid mt-5">
-            <CardUser :usersList="users"/>
+            <CardUser :usersList="users"/> 
         </div>
     </div>
 </template>
@@ -36,6 +36,7 @@ export default {
             typologies: [],
             users: [],
             filterTypologies: [],
+            active: [],
         }
     },
     created() {
@@ -57,6 +58,17 @@ export default {
     },
 
     methods: {
+
+        activeTypology(index){
+             if(!this.active.includes(index)){
+                this.active.push(index);
+            }
+            else {
+                this.active.splice(this.active.indexOf(index), 1);
+            }
+            console.log(this.active);
+
+        },
         
         filter(id) {
     
@@ -66,8 +78,6 @@ export default {
             else {
                 this.filterTypologies.splice(this.filterTypologies.indexOf(id), 1);
             }
-
-            console.log(this.filterTypologies)
 
             if(this.filterTypologies != 0){
                 axios.get(`/api/typologies/` + this.filterTypologies)
@@ -115,6 +125,8 @@ export default {
     margin: 0 5px;
     width: calc(100%  / 3 - 10px);
     font-size: 10px ;
+    cursor: pointer;
+
     img {
         width:100%;
         border-radius: 5px;
@@ -157,4 +169,8 @@ export default {
     width: calc(100% / 8 - 10px);
   }
 }
+
+.ciao{
+    opacity: .7;
+    }
 </style>
