@@ -58,17 +58,29 @@ export default {
 
     methods: {
         
-        async filter(id) {
+        filter(id) {
+    
             if(!this.filterTypologies.includes(id)){
                 this.filterTypologies.push(id);
-            }else{
+            }
+            else {
                 this.filterTypologies.splice(this.filterTypologies.indexOf(id), 1);
             }
 
+            console.log(this.filterTypologies)
 
-           await axios.get(`/typologies/` + this.filterTypologie)
-            .then((response) => {console.log(response.data)
+            if(this.filterTypologies != 0){
+                axios.get(`/api/typologies/` + this.filterTypologies)
+                .then((response) => {
+                    this.users = response.data;
                 })
+            }
+            else {
+                 axios.get(`/api/users`)
+                .then((response) => {
+                this.users = response.data;
+                })
+            }
         },
 
         allDishes() {
