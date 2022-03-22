@@ -14,6 +14,15 @@
               <div>
                 <input type="text" id="name" placeholder="Inserisci il nome" v-model="userOrder.name">
               </div>
+               <div>
+                <input type="text" id="lastName" placeholder="Inserisci il nome" v-model="userOrder.lastName">
+              </div>
+              <div>
+                <input type="number" id="phone" placeholder="Inserisci il nome" v-model="userOrder.phone">
+              </div>
+              <div>
+                <input type="text" id="address" placeholder="Inserisci il nome" v-model="userOrder.address">
+              </div>
                 <div>
                     <button type="submit">Paga</button>
                 </div>
@@ -22,6 +31,7 @@
         Phone
         adress
         totalPrice -->
+        <!-- <input type="hidden" value="{{this.totale}}" v-model="userOrder.totalPrice"> -->
         <div>TOTALE ORDINE € {{totalPrice()}}</div>
     </div>
 </template>
@@ -33,12 +43,13 @@ export default {
     data() {
       return {
         carrello: [],
+        totale : 0,
         userOrder:{
             name: '',
-            // lastName: '',
-            // phone: '',
-            // address: '',
-            // totalPrice:'',
+            lastName: '',
+            phone: '',
+            address: '',
+            totalPrice: null,
         },
       }
     },
@@ -52,16 +63,21 @@ export default {
     methods: {  
         totalPrice() {
             let total = 0;
+            this.totale = total;
             this.carrello.forEach(item => {
-                total += item.quantity * item.price;
+                this.totale += item.quantity * item.price;
             });
-            return total;
+            return this.totale;
         },
 
         sendData(){
-            axios.post(`/api/order`, this.userOrder).then( (response) => {
-                console.log(this.userOrder.name)
+            axios.post(`/api/order/sent`, this.userOrder , this.userOrder.totalPrice = this.totale)
+            .then( (response) => {
+                console.log(response)
             })
+            .catch(function (error) {
+                console.log(error);
+            });
         },
     }
 }

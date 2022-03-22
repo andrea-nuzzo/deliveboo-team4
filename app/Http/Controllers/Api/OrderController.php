@@ -10,6 +10,12 @@ class OrderController extends Controller
 {
     public function store(Request $request) {
         $data = $request->all();
-        dd($data);
+        $newOrder = new Order();
+        $newOrder->first_name = $data['name'];
+        $newOrder->last_name = $data['lastName'];
+        $newOrder->phone = $data['phone'];
+        $newOrder->address = $data['address'];
+        $newOrder->total_price = $data['totalPrice'];
+        $newOrder->save();
     }
 }
