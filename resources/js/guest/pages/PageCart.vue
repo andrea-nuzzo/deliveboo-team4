@@ -17,13 +17,13 @@
             </div>
 
             <div class="form-group">
-              <label for="cognome">Inserisci il cognome *</label>
+              <label for="lastName">Inserisci il cognome *</label>
               <input
                 type="text"
                 class="form-control"
-                id="cognome"
-                name="cognome"
-                v-model="form.client.cognome"
+                id="lastName"
+                name="lastName"
+                v-model="form.client.lastName"
                 required
               />
             </div>
@@ -42,27 +42,16 @@
               />
             </div>
             <div class="form-group">
-              <label for="telephone">Telefono *</label>
+              <label for="phone">Telefono *</label>
               <input
                 type="text"
                 class="form-control"
-                id="telephone"
-                name="telephone"
-                v-model="form.client.telephone"
+                id="phone"
+                name="phone"
+                v-model="form.client.phone"
                 required
               />
             </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Inserisci la mail *</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              v-model="form.client.email"
-              required
-            />
           </div>
         </div>
 
@@ -110,14 +99,33 @@ export default {
         loading: null,
         form: {
             tokenClient: "",
-            carrello: [],
+            dishes: [],
             client: {
             name: "",
-            cognome: "",
-            email: "",
+            lastName: "",
             address: "",
-            telephone: "",
+            phone: "",
         },
+      },
+
+        validation: {
+          name: {
+            success: true,
+            message: "",
+          },
+          lastName: {
+            success: true,
+            message: "",
+          },
+          address: {
+            success: true,
+            message: "",
+          },
+          phone: {
+            success: true,
+            message: "",
+            
+          },
       },
       }
     },
@@ -126,7 +134,7 @@ export default {
         if (localStorage.carrello) {
           this.carrello = JSON.parse(localStorage.getItem("carrello"));
           this.carrello.forEach((element) => {
-                this.form.carrello.push({
+                this.form.dishes.push({
                     id: element.id,
                     quantity: element.quantity,
                 });
@@ -145,39 +153,116 @@ export default {
 
     methods: {
 
-         redirect() {
-            this.$router.push({
-                name: "success",
+      redirect() {
+          this.$router.push({
+              name: "success",
             });
         },
+
+      beforeBuy() {
+        this.validationFormJs();
+        if (this.isValidate()) {
+          this.$refs.paymentBtnRef.click();
+        }
+      },
+
         
-         onSuccess(payload) {
-            let nonce = payload.nonce;
-            this.form.tokenClient = nonce;
-            // Do something great with the nonce...+axios
-            const self = this;
-            this.loading = true;
-            axios
-                .post("/api/orders/make/payment", this.form)
-                .then((response) => {
-                console.log(response);
-                self.clearCart();
-                self.redirect();
-                })
-                .catch(function (error) {
-                console.log(error);
-                });
-        },
+      onSuccess(payload) {
+          let nonce = payload.nonce;
+          this.form.tokenClient = nonce;
+          // Do something great with the nonce...+axios
+          const self = this;
+          this.loading = true;
+          axios
+              .post("/api/orders/make/payment", this.form)
+              .then((response) => {
+              console.log(response);
+              self.clearCart();
+              self.redirect();
+              })
+              .catch(function (error) {
+              console.log(error);
+              });
+      },
 
-        onError(error) {
-            let message = error.message;
-            // Whoops, an error has occured while trying to get the nonce
-        },
+      onError(error) {
+          let message = error.message;
+          // Whoops, an error has occured while trying to get the nonce
+      },
 
-        clearCart() {
-        this.carrello = [];
-        },
-    }
+      clearCart() {
+      this.carrello = [];
+      },
+
+      validationFormJs() {
+      // validazione nome
+      if (this.form.client.name == "") {
+        this.validation.name.success = false;
+        this.validation.name.message = "Il nome non può essere vuoto";
+      } else if (this.form.client.name.length > 100) {
+        this.validation.name.success = false;
+        this.validation.name.message =
+          "Il nome non può superare i 100 caratteri";
+      } else {
+        this.validation.name.success = true;
+        this.validation.name.message = "";
+      }
+      // validazione cognome
+      if (this.form.client.cognome == "") {
+        this.validation.cognome.success = false;
+        this.validation.cognome.message = "Il cognome non può essere vuoto";
+      } else if (this.form.client.cognome.length > 100) {
+        this.validation.cognome.success = false;
+        this.validation.cognome.message =
+          "Il cognome non può superare i 100 caratteri";
+      } else {
+        this.validation.cognome.success = true;
+        this.validation.cognome.message = "";
+      }
+      //validazione indirizzo
+      if (this.form.client.address == "") {
+        this.validation.address.success = false;
+        this.validation.address.message = "L'indirizzo non può essere vuoto";
+      } else if (this.form.client.address.length > 255) {
+        this.validation.address.success = false;
+        this.validation.address.message =
+          "L'indirizzo non può superare i 255 caratteri";
+      } else {
+        this.validation.address.success = true;
+        this.validation.address.message = "";
+      }
+      // validazione telefono
+      if (this.form.client.telephone == "") {
+        this.validation.telephone.success = false;
+        this.validation.telephone.message = "Inserire il numero di telefono";
+      } else if (isNaN(this.form.client.telephone)) {
+        this.validation.telephone.success = false;
+        this.validation.telephone.message =
+          "Il telefono deve essere composto da numeri";
+      } else if (
+        this.form.client.telephone.length < 8 ||
+        this.form.client.telephone.length > 11
+      ) {
+        this.validation.telephone.success = false;
+        this.validation.telephone.message =
+          "Il telefono deve essere compreso tra gli 8 e gli 11 caratteri";
+      } else {
+        this.validation.telephone.success = true;
+        this.validation.telephone.message = "";
+      }
+    },
+
+    isValidate() {
+      for (const key in this.validation) {
+        if (!this.validation[key].success) {
+          return false;
+        }
+      }
+
+      return true;
+    },
+
+  }
 }
 </script>
 
