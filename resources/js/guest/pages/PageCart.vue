@@ -49,7 +49,6 @@
                 id="phone"
                 name="phone"
                 v-model="form.client.phone"
-                required
                 pattern="[0-9]+"
                 maxlength="15"
                 minlength="8"

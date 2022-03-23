@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class OrderController extends Controller
 {
@@ -14,8 +18,17 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
+     {
+    //     //Prendo l'id dell'utente loggato
+        $idLog = Auth::id();
+
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+
+        $orders = Order::with(['dishes'])->groupBy('id')->get();
+        // $quantity = $dishes->pluck('pivot.quantity');
+
+        return view('admin.orders.index', compact('orders', 'user'));
     }
 
     /**
