@@ -1,7 +1,7 @@
 <template>
   <div class=" container checkout-page">
     <div class="_my_container">
-      <form v-if="!loading">
+      <form v-if="!loading"  @submit.prevent="beforeBuy()">
         <div class="wrapper">
           <div class="info">
             <div class="form-group">
@@ -63,6 +63,9 @@
             @success="onSuccess"
             @error="onError"
           >
+            <template #button="slotProps">
+              <div ref="paymentBtnRef" @click="slotProps.submit" />
+            </template>
           </v-braintree>
 
           <div v-else>
@@ -77,9 +80,12 @@
               <div></div>
             </div>
           </div>
+          <button class="btn">
+            Procedi al pagamento
+          </button>
         </div>
       </form>
-      <div v-else class="loading-payment" @click="beforeBuy()">
+      <div v-else class="loading-payment">
         <h4>Pagamento in corso...</h4>
         <div class="lds-circle"></div>
       </div>
@@ -160,10 +166,10 @@ export default {
         },
 
       beforeBuy() {
-        this.validationFormJs();
-        if (this.isValidate()) {
-          this.$refs.paymentBtnRef.click();
-        }
+      //   this.validationFormJs();
+      //   if (this.isValidate()) {
+      this.$refs.paymentBtnRef.click();
+      //   }
       },
 
         
@@ -194,73 +200,73 @@ export default {
       this.carrello = [];
       },
 
-      validationFormJs() {
-      // validazione nome
-      if (this.form.client.name == "") {
-        this.validation.name.success = false;
-        this.validation.name.message = "Il nome non può essere vuoto";
-      } else if (this.form.client.name.length > 100) {
-        this.validation.name.success = false;
-        this.validation.name.message =
-          "Il nome non può superare i 100 caratteri";
-      } else {
-        this.validation.name.success = true;
-        this.validation.name.message = "";
-      }
-      // validazione cognome
-      if (this.form.client.cognome == "") {
-        this.validation.cognome.success = false;
-        this.validation.cognome.message = "Il cognome non può essere vuoto";
-      } else if (this.form.client.cognome.length > 100) {
-        this.validation.cognome.success = false;
-        this.validation.cognome.message =
-          "Il cognome non può superare i 100 caratteri";
-      } else {
-        this.validation.cognome.success = true;
-        this.validation.cognome.message = "";
-      }
-      //validazione indirizzo
-      if (this.form.client.address == "") {
-        this.validation.address.success = false;
-        this.validation.address.message = "L'indirizzo non può essere vuoto";
-      } else if (this.form.client.address.length > 255) {
-        this.validation.address.success = false;
-        this.validation.address.message =
-          "L'indirizzo non può superare i 255 caratteri";
-      } else {
-        this.validation.address.success = true;
-        this.validation.address.message = "";
-      }
-      // validazione telefono
-      if (this.form.client.telephone == "") {
-        this.validation.telephone.success = false;
-        this.validation.telephone.message = "Inserire il numero di telefono";
-      } else if (isNaN(this.form.client.telephone)) {
-        this.validation.telephone.success = false;
-        this.validation.telephone.message =
-          "Il telefono deve essere composto da numeri";
-      } else if (
-        this.form.client.telephone.length < 8 ||
-        this.form.client.telephone.length > 11
-      ) {
-        this.validation.telephone.success = false;
-        this.validation.telephone.message =
-          "Il telefono deve essere compreso tra gli 8 e gli 11 caratteri";
-      } else {
-        this.validation.telephone.success = true;
-        this.validation.telephone.message = "";
-      }
-    },
+    //   validationFormJs() {
+    //   // validazione nome
+    //   if (this.form.client.name == "") {
+    //     this.validation.name.success = false;
+    //     this.validation.name.message = "Il nome non può essere vuoto";
+    //   } else if (this.form.client.name.length > 100) {
+    //     this.validation.name.success = false;
+    //     this.validation.name.message =
+    //       "Il nome non può superare i 100 caratteri";
+    //   } else {
+    //     this.validation.name.success = true;
+    //     this.validation.name.message = "";
+    //   }
+    //   // validazione cognome
+    //   if (this.form.client.cognome == "") {
+    //     this.validation.cognome.success = false;
+    //     this.validation.cognome.message = "Il cognome non può essere vuoto";
+    //   } else if (this.form.client.cognome.length > 100) {
+    //     this.validation.cognome.success = false;
+    //     this.validation.cognome.message =
+    //       "Il cognome non può superare i 100 caratteri";
+    //   } else {
+    //     this.validation.cognome.success = true;
+    //     this.validation.cognome.message = "";
+    //   }
+    //   //validazione indirizzo
+    //   if (this.form.client.address == "") {
+    //     this.validation.address.success = false;
+    //     this.validation.address.message = "L'indirizzo non può essere vuoto";
+    //   } else if (this.form.client.address.length > 255) {
+    //     this.validation.address.success = false;
+    //     this.validation.address.message =
+    //       "L'indirizzo non può superare i 255 caratteri";
+    //   } else {
+    //     this.validation.address.success = true;
+    //     this.validation.address.message = "";
+    //   }
+    //   // validazione telefono
+    //   if (this.form.client.telephone == "") {
+    //     this.validation.telephone.success = false;
+    //     this.validation.telephone.message = "Inserire il numero di telefono";
+    //   } else if (isNaN(this.form.client.telephone)) {
+    //     this.validation.telephone.success = false;
+    //     this.validation.telephone.message =
+    //       "Il telefono deve essere composto da numeri";
+    //   } else if (
+    //     this.form.client.telephone.length < 8 ||
+    //     this.form.client.telephone.length > 11
+    //   ) {
+    //     this.validation.telephone.success = false;
+    //     this.validation.telephone.message =
+    //       "Il telefono deve essere compreso tra gli 8 e gli 11 caratteri";
+    //   } else {
+    //     this.validation.telephone.success = true;
+    //     this.validation.telephone.message = "";
+    //   }
+    // },
 
-    isValidate() {
-      for (const key in this.validation) {
-        if (!this.validation[key].success) {
-          return false;
-        }
-      }
+    // isValidate() {
+    //   for (const key in this.validation) {
+    //     if (!this.validation[key].success) {
+    //       return false;
+    //     }
+    //   }
 
-      return true;
-    },
+    //   return true;
+    // },
 
   }
 }
