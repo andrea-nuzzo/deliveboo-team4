@@ -30,6 +30,9 @@ import App from './App.vue';
 //aggiungo import del file router.js
 import router from "./router";
 
+import vuebraintree from 'vue-braintree'
+Vue.use(vuebraintree);
+
 import VueHorizontal from 'vue-horizontal';
 Vue.use(VueHorizontal);
 

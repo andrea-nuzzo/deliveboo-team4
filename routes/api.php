@@ -26,5 +26,8 @@ Route::get("/users/{slug}", "Api\UserController@show");
 Route::get("/dishes", "Api\DishController@index");
 Route::get("/dishes/{id}", "Api\DishController@show");
 
-Route::post("/order/sent", "Api\OrderController@store");
-Route::get("/order", "Api\OrderController@provaRequest");
+
+
+Route::get('orders/generate', 'Api\OrderController@generate');
+Route::post('orders/make/payment', 'Api\OrderController@makePayment');
+
