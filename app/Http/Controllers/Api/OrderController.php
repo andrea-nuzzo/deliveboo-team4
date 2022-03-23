@@ -20,7 +20,7 @@ class OrderController extends Controller
             'client.name' => ['required', 'string', 'max:100'],
             'client.lastName' => ['required', 'string', 'max:100'],
             'client.address' => ['required', 'string', 'max:255'],
-            'client.phone' => ['required', 'numeric',]
+            'client.phone' => ['required', 'numeric', 'digits_between:8,15']
         ]);
 
         if ($validator->fails()) {

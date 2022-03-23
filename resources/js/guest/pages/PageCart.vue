@@ -50,6 +50,11 @@
                 name="phone"
                 v-model="form.client.phone"
                 required
+                pattern="[0-9]+"
+                maxlength="15"
+                minlength="8"
+                oninvalid="this.setCustomValidity('Il numero di telefono deve contenere solo numeri')"
+                oninput="this.setCustomValidity('')"
               />
             </div>
           </div>
@@ -80,7 +85,7 @@
               <div></div>
             </div>
           </div>
-          <button class="btn">
+          <button class="btn btn--green">
             Procedi al pagamento
           </button>
         </div>
