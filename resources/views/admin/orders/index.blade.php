@@ -10,7 +10,7 @@
         <th scope="col">Cognome</th>
         <th scope="col">Telefono</th>
         <th scope="col">Indirizzo</th>
-        <th scope="col">dishes</th>
+        <th scope="col">Piatti</th>
 
       </tr>
     </thead>
@@ -23,14 +23,21 @@
         <td>{{$order->last_name}}</td>
         <td>{{$order->phone}}</td>
         <td>{{$order->address}}</td>
-        <td>{{($order->dish)}}</td>
+        <td>{{($order->dish)}} 
+          @foreach ($order->dishes as $dish)
+              <div>
+                  <span>{{$dish->name}},</span> 
+                  <span>quantita: {{$dish->pivot->quantity}}</span>
+              </div>
+          @endforeach 
+        </td>
       </tr>
     
       @endforeach
 
     </tbody>
   </table>
-  @dd($orders)
+  {{-- @dd($orders[2]->dishes[0]->pivot->quantity) --}}
     {{-- @foreach ($dishes as $item)
         @dd($item)
     @endforeach --}}

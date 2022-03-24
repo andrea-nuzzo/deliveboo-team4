@@ -25,7 +25,7 @@ class OrderController extends Controller
         // Recupero tutti i dati dell'utente loggato
         $user = DB::table('users')->where('id', '=', $idLog)->first();
 
-        $orders = Order::with(['dishes'])->groupBy('id')->get();
+        $orders = Order::with(['dishes'])->groupBy('id')->orderBy('updated_at', 'desc')->get();
         // $quantity = $dishes->pluck('pivot.quantity');
 
         return view('admin.orders.index', compact('orders', 'user'));
