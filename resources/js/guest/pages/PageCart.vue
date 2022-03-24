@@ -84,16 +84,15 @@
               <div></div>
             </div>
           </div>
-          <button @click="showAlert()">Hello world</button>
           <button class="btn btn--green">
             Procedi al pagamento
           </button>
         </div>
       </form>
-      <div v-else class="loading-payment">
+      <!-- <div v-else class="loading-payment">
         <h4>Pagamento in corso...</h4>
         <div class="lds-circle"></div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -164,45 +163,50 @@ export default {
 
     methods: {
 
-      redirect() {
-          this.$router.push({
-              name: "success",
-            });
-      },
+    redirect() {
+        this.$router.push({
+            name: "home",
+          });
+    },
 
-      beforeBuy() {
-      //   this.validationFormJs();
-      //   if (this.isValidate()) {
-      this.$refs.paymentBtnRef.click();
-      //   }
-      },
+    beforeBuy() {
+    //   this.validationFormJs();
+    //   if (this.isValidate()) {
+    this.$refs.paymentBtnRef.click();
+    //   }
+    },
 
-        
-      onSuccess(payload) {
-          let nonce = payload.nonce;
-          this.form.tokenClient = nonce;
-          // Do something great with the nonce...+axios
-          const self = this;
-          this.loading = true;
-          axios
-              .post("/api/orders/make/payment", this.form)
-              .then((response) => {
-              console.log(response);
-              self.clearCart();
-              self.redirect();
-              })
-              .catch(function (error) {
-                self.showAlert();
-              });
-      },
-      onError (error) {
-      let message = error.message;
-      // Whoops, an error has occured while trying to get the nonce
-      },
+    clearCart() {
+      this.carrello = [];
+      localStorage.removeItem("carrello");
+    },
 
-
-      showAlert() {
       
+    onSuccess(payload) {
+        let nonce = payload.nonce;
+        this.form.tokenClient = nonce;
+        // Do something great with the nonce...+axios
+        const self = this;
+        this.loading = true;
+        axios
+            .post("/api/orders/make/payment", this.form)
+            .then((response) => {
+            console.log(response);
+              self.clearCart();
+              self.showAlertSuccess();
+              self.redirect();
+            })
+            .catch(function (error) {
+              self.showAlertDanger();
+            });
+    },
+    onError (error) {
+    let message = error.message;
+    // Whoops, an error has occured while trying to get the nonce
+    },
+
+
+    showAlertDanger() {
       this.$swal({
         background: '#fff',
         icon: 'error',
@@ -211,78 +215,83 @@ export default {
       })
     },
 
-      clearCart() {
-      this.carrello = [];
-      localStorage.removeItem("carrello");
-      },
+    showAlertSuccess() {
+      this.$swal({
+        background: '#fff',
+        icon: 'success',
+        text: 'Il pagamento è andato a buon fine',
+      })
+    }
 
-    //   validationFormJs() {
-    //   // validazione nome
-    //   if (this.form.client.name == "") {
-    //     this.validation.name.success = false;
-    //     this.validation.name.message = "Il nome non può essere vuoto";
-    //   } else if (this.form.client.name.length > 100) {
-    //     this.validation.name.success = false;
-    //     this.validation.name.message =
-    //       "Il nome non può superare i 100 caratteri";
-    //   } else {
-    //     this.validation.name.success = true;
-    //     this.validation.name.message = "";
-    //   }
-    //   // validazione cognome
-    //   if (this.form.client.cognome == "") {
-    //     this.validation.cognome.success = false;
-    //     this.validation.cognome.message = "Il cognome non può essere vuoto";
-    //   } else if (this.form.client.cognome.length > 100) {
-    //     this.validation.cognome.success = false;
-    //     this.validation.cognome.message =
-    //       "Il cognome non può superare i 100 caratteri";
-    //   } else {
-    //     this.validation.cognome.success = true;
-    //     this.validation.cognome.message = "";
-    //   }
-    //   //validazione indirizzo
-    //   if (this.form.client.address == "") {
-    //     this.validation.address.success = false;
-    //     this.validation.address.message = "L'indirizzo non può essere vuoto";
-    //   } else if (this.form.client.address.length > 255) {
-    //     this.validation.address.success = false;
-    //     this.validation.address.message =
-    //       "L'indirizzo non può superare i 255 caratteri";
-    //   } else {
-    //     this.validation.address.success = true;
-    //     this.validation.address.message = "";
-    //   }
-    //   // validazione telefono
-    //   if (this.form.client.telephone == "") {
-    //     this.validation.telephone.success = false;
-    //     this.validation.telephone.message = "Inserire il numero di telefono";
-    //   } else if (isNaN(this.form.client.telephone)) {
-    //     this.validation.telephone.success = false;
-    //     this.validation.telephone.message =
-    //       "Il telefono deve essere composto da numeri";
-    //   } else if (
-    //     this.form.client.telephone.length < 8 ||
-    //     this.form.client.telephone.length > 11
-    //   ) {
-    //     this.validation.telephone.success = false;
-    //     this.validation.telephone.message =
-    //       "Il telefono deve essere compreso tra gli 8 e gli 11 caratteri";
-    //   } else {
-    //     this.validation.telephone.success = true;
-    //     this.validation.telephone.message = "";
-    //   }
-    // },
+   
 
-    // isValidate() {
-    //   for (const key in this.validation) {
-    //     if (!this.validation[key].success) {
-    //       return false;
-    //     }
-    //   }
+  //   validationFormJs() {
+  //   // validazione nome
+  //   if (this.form.client.name == "") {
+  //     this.validation.name.success = false;
+  //     this.validation.name.message = "Il nome non può essere vuoto";
+  //   } else if (this.form.client.name.length > 100) {
+  //     this.validation.name.success = false;
+  //     this.validation.name.message =
+  //       "Il nome non può superare i 100 caratteri";
+  //   } else {
+  //     this.validation.name.success = true;
+  //     this.validation.name.message = "";
+  //   }
+  //   // validazione cognome
+  //   if (this.form.client.cognome == "") {
+  //     this.validation.cognome.success = false;
+  //     this.validation.cognome.message = "Il cognome non può essere vuoto";
+  //   } else if (this.form.client.cognome.length > 100) {
+  //     this.validation.cognome.success = false;
+  //     this.validation.cognome.message =
+  //       "Il cognome non può superare i 100 caratteri";
+  //   } else {
+  //     this.validation.cognome.success = true;
+  //     this.validation.cognome.message = "";
+  //   }
+  //   //validazione indirizzo
+  //   if (this.form.client.address == "") {
+  //     this.validation.address.success = false;
+  //     this.validation.address.message = "L'indirizzo non può essere vuoto";
+  //   } else if (this.form.client.address.length > 255) {
+  //     this.validation.address.success = false;
+  //     this.validation.address.message =
+  //       "L'indirizzo non può superare i 255 caratteri";
+  //   } else {
+  //     this.validation.address.success = true;
+  //     this.validation.address.message = "";
+  //   }
+  //   // validazione telefono
+  //   if (this.form.client.telephone == "") {
+  //     this.validation.telephone.success = false;
+  //     this.validation.telephone.message = "Inserire il numero di telefono";
+  //   } else if (isNaN(this.form.client.telephone)) {
+  //     this.validation.telephone.success = false;
+  //     this.validation.telephone.message =
+  //       "Il telefono deve essere composto da numeri";
+  //   } else if (
+  //     this.form.client.telephone.length < 8 ||
+  //     this.form.client.telephone.length > 11
+  //   ) {
+  //     this.validation.telephone.success = false;
+  //     this.validation.telephone.message =
+  //       "Il telefono deve essere compreso tra gli 8 e gli 11 caratteri";
+  //   } else {
+  //     this.validation.telephone.success = true;
+  //     this.validation.telephone.message = "";
+  //   }
+  // },
 
-    //   return true;
-    // },
+  // isValidate() {
+  //   for (const key in this.validation) {
+  //     if (!this.validation[key].success) {
+  //       return false;
+  //     }
+  //   }
+
+  //   return true;
+  // },
 
   }
 }
@@ -290,8 +299,6 @@ export default {
 
 <style lang='scss' >
 @import '~sweetalert2/src/variables';
-
-$swal2-background: #990000;
 
 @import '~sweetalert2/src/sweetalert2';
 </style>
