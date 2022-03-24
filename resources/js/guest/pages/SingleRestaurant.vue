@@ -1,14 +1,18 @@
 <template>
   <div class="restaurant--container">
-    <div class="row">
+
+    <div class="row mb-3">
+
       <div class="img--restaurant col-xs-10 col-sm-6 col-lg-5 py-3 pl-5">
         <img :src="`/storage/${restaurant.image}`" alt="">
       </div>
       <!-- inizio colonna di dx -->
       <div class="col-xs-12 col-sm-6 col-lg-7 py-3 px-5 ">
+
         <div>
           <h2>{{restaurant.name}}</h2>
         </div>
+
         <div class="d-flex align-items-center">
           <div v-for="(type, index) in restaurant.typologies" :key="index" class="d-flex align-items-center">
                   <span v-if="index > 0" class="puntino">   &#9679;   </span>
@@ -28,37 +32,53 @@
       <!-- fine colonna di dx -->
     </div>
 
-    <div class="row piatti-carrello">
-      <div class="col-8">
+    <div class="row d-flex justify-content-around mx-2">
+
+      <div class="col-sm-12 col-md-8">
         <!-- inizio menu -->
-        <div>
-            <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
-              <button @click="addToCart(dish)">Aggiungi al carrello</button>
-              <div v-show="dish.visible">
-                <div class="card card-dish mb-3">
-                  <div class="row no-gutters">
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">{{dish.name}}</h5>
-                        <p class="card-text">{{dish.ingredients}}</p>
-                        <p class="card-text"><small class="text-muted">{{dish.price}}</small></p>         
-                      </div>                    
-                    </div>
-                    <div class="col-md-4">
-                      <img :src="`/storage/${dish.image}`" alt="">
-                    </div>
-                  </div>
+        <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
+
+          <div v-show="dish.visible">
+
+            <div class="card-dish mb-3">
+
+              <div class="row no-gutters d-flex align-items-center">
+
+                <div class="col-md-7">
+
+                  <div class="card-body">
+                    <h5 class="card-title">{{dish.name}}</h5>
+                    <p class="card-text">{{dish.ingredients}}</p>
+                    <p class="card-text"><small class="text-muted">€ {{dish.price}}</small></p> 
+                    <button class="generalBtn btn--green" @click="addToCart(dish)">Aggiungi al carrello</button>        
+                  </div> 
+
                 </div>
+
+                <div class="col-sm-8 col-md-4 my-3">
+                  <img class="rounded-circle dish-menu" :src="`/storage/${dish.image}`" alt="">
+                </div>
+
+                <!-- <div class="col-md-4 mx-3 my-3">
+                  <button class="generalBtn btn--green" @click="addToCart(dish)">Aggiungi al carrello</button>
+                </div> -->
+                
               </div>
+
             </div>
+
+          </div>
+
         </div>
+
       </div>
-      <div class="col-4">
+      <!-- carrello -->
+      <div class="col-md-4">
         <Cart :carrello="carrello"/>
       </div>
 
-
     </div>
+
   </div>
 </template>
 
@@ -173,7 +193,6 @@ export default {
 }
 
 div.card-dish {
-  max-height: 100px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
@@ -187,9 +206,18 @@ div.card-dish {
     overflow: hidden;
   }
   img{
-    height: inherit;
+    height: 200px;
     width: inherit;
+    object-fit: cover;
+    object-position: bottom;
   }
+
 }
+
+.card-body {
+  max-height: 100%;
+}
+
+
 
 </style>
