@@ -27,6 +27,7 @@
     "dependencies": {
         "vue-braintree": "^2.1.0",
         "vue-horizontal": "^0.8.12",
-        "vue-router": "^3.5.3"
+        "vue-router": "^3.5.3",
+        "vue-sweetalert2": "^5.0.2"
     }
 }

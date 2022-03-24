@@ -23,7 +23,7 @@
         <td>{{$order->last_name}}</td>
         <td>{{$order->phone}}</td>
         <td>{{$order->address}}</td>
-        <td>{{foreach($order->dish as $dish)}}</td>
+        <td>{{($order->dish)}}</td>
       </tr>
     
       @endforeach

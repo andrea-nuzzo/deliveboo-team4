@@ -33,6 +33,9 @@ import router from "./router";
 import vuebraintree from 'vue-braintree'
 Vue.use(vuebraintree);
 
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
+
 import VueHorizontal from 'vue-horizontal';
 Vue.use(VueHorizontal);
 

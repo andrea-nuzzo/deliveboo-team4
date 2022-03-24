@@ -42,7 +42,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="phone">Telefono *</label>
+              <label for="phone">Telefono</label>
               <input
                 type="text"
                 class="form-control"
@@ -84,6 +84,7 @@
               <div></div>
             </div>
           </div>
+          <button @click="showAlert()">Hello world</button>
           <button class="btn btn--green">
             Procedi al pagamento
           </button>
@@ -167,7 +168,7 @@ export default {
           this.$router.push({
               name: "success",
             });
-        },
+      },
 
       beforeBuy() {
       //   this.validationFormJs();
@@ -191,14 +192,19 @@ export default {
               self.redirect();
               })
               .catch(function (error) {
-              console.log(error);
+                self.showAlert();
               });
       },
 
-      onError(error) {
-          let message = error.message;
-          // Whoops, an error has occured while trying to get the nonce
-      },
+      showAlert() {
+      
+      this.$swal({
+        background: '#fff',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Il pagamento non è andato a buon fine',
+      })
+    },
 
       clearCart() {
       this.carrello = [];
@@ -276,6 +282,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss' >
+@import '~sweetalert2/src/variables';
 
+$swal2-background: #990000;
+
+@import '~sweetalert2/src/sweetalert2';
 </style>

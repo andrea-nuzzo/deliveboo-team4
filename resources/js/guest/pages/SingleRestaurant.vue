@@ -33,15 +33,16 @@
         <!-- inizio menu -->
         <div>
             <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
+              <button @click="addToCart(dish)">Aggiungi al carrello</button>
               <div v-show="dish.visible">
-                <div class="card card-dish mb-3" @click="addToCart(dish)">
+                <div class="card card-dish mb-3">
                   <div class="row no-gutters">
                     <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title">{{dish.name}}</h5>
                         <p class="card-text">{{dish.ingredients}}</p>
-                        <p class="card-text"><small class="text-muted">{{dish.price}}</small></p>
-                      </div>
+                        <p class="card-text"><small class="text-muted">{{dish.price}}</small></p>         
+                      </div>                    
                     </div>
                     <div class="col-md-4">
                       <img :src="`/storage/${dish.image}`" alt="">
