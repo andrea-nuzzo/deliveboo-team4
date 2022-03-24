@@ -202,6 +202,7 @@ export default {
 
       clearCart() {
       this.carrello = [];
+      localStorage.removeItem("carrello");
       },
 
     //   validationFormJs() {
