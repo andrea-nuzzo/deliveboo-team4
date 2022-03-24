@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import SingleRestaurant from "./pages/SingleRestaurant";
 import PageCart from "./pages/PageCart";
 import Success from "./pages/Success";
+import PageNotFound from "./pages/PageNotFound";
 // import PageNotFound from "./pages/PageNotFound";
 
 
@@ -19,16 +20,6 @@ const router = new VueRouter({
             name: "home",
             component: Home,
         },
-        // {
-        //     path: "/chi-siamo",
-        //     name: "about",
-        //     component: About,
-        // },
-        // {
-        //     path: "/posts/:slug",
-        //     name: "single-post",
-        //     component: SinglePost,
-        // },
         {
             path: "/carrello",
             name: "page-cart",
@@ -44,12 +35,11 @@ const router = new VueRouter({
             name: "success",
             component: Success
         },
-        // // mostrare 404
-        // {
-        //     path:'*',
-        //     name: 'page-404',
-        //     component: PageNotFound
-        // }
+        {
+            path:'*',
+            name: 'page-404',
+            component: PageNotFound
+        }
     ],
 });
 
