@@ -93,6 +93,15 @@ export default {
 
     methods: {
 
+      showAlertDanger() {
+      this.$swal({
+        background: '#fff',
+        icon: 'error',
+        title: 'Attenzione',
+        text: 'Non puoi aggiungere piatti da un altro Ristorante',
+      })
+    },
+
       addToCart(dish) {
 
 
@@ -129,10 +138,16 @@ export default {
           } 
 
           // Altrimenti pusho il nuovo piatto
-          else {
+          else{
             // Sempre che l'id dei ristoranti coincida altrimento sollevo un eccezione
-            firstDishCart == newItem.risto_id  ? this.carrello.push(newItem) : alert
-            ("Non puoi aggiungere piatti da un altro ristorante");
+            firstDishCart == newItem.risto_id  ? this.carrello.push(newItem) : 
+            this.$swal({
+              background: '#fff',
+              icon: 'error',
+              title: 'Attenzione',
+              confirmButtonColor: '#00ccbc',
+              text: 'Non puoi aggiungere piatti da un altro Ristorante',
+            })
           }
         }
         localStorage.setItem("carrello", JSON.stringify(this.carrello));
@@ -142,6 +157,8 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+  @import '~sweetalert2/src/variables';
+  @import '~sweetalert2/src/sweetalert2';
 .restaurant--container {
   overflow-x: hidden;
 }

@@ -72,7 +72,7 @@
             </template>
           </v-braintree>
 
-          <div v-else>
+          <!-- <div v-else>
             <div class="lds-roller">
               <div></div>
               <div></div>
@@ -83,10 +83,10 @@
               <div></div>
               <div></div>
             </div>
-          </div>
+          </div>-->
           <button class="btn btn--green">
             Procedi al pagamento
-          </button>
+          </button> 
         </div>
       </form>
       <!-- <div v-else class="loading-payment">
@@ -169,6 +169,12 @@ export default {
           });
     },
 
+    redirectPayment() {
+      this.$router.push({
+            name: "page-cart",
+          });
+    },
+
     beforeBuy() {
     //   this.validationFormJs();
     //   if (this.isValidate()) {
@@ -198,6 +204,7 @@ export default {
             })
             .catch(function (error) {
               self.showAlertDanger();
+              
             });
     },
     onError (error) {
@@ -205,21 +212,29 @@ export default {
     // Whoops, an error has occured while trying to get the nonce
     },
 
-
+    // Modale che ricarica il carrello se il pagamento non è andato a buonfine
     showAlertDanger() {
       this.$swal({
         background: '#fff',
+        confirmButtonColor: '#00ccbc',
         icon: 'error',
         title: 'Oops...',
         text: 'Il pagamento non è andato a buon fine',
-      })
+      }).then((result) => {
+        if (result.isConfirmed) {
+         window.location.reload();
+        }
+      })  
     },
 
     showAlertSuccess() {
       this.$swal({
         background: '#fff',
         icon: 'success',
+        confirmButtonColor: '#00ccbc',
         text: 'Il pagamento è andato a buon fine',
+        showConfirmButton: false,
+        timer: 2000
       })
     }
 
