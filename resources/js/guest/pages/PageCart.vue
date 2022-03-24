@@ -195,6 +195,11 @@ export default {
                 self.showAlert();
               });
       },
+      onError (error) {
+      let message = error.message;
+      // Whoops, an error has occured while trying to get the nonce
+      },
+
 
       showAlert() {
       
