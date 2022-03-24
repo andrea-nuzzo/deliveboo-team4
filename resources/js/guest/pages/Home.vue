@@ -107,7 +107,7 @@ export default {
 // Carousel
 .card--typo{
     margin: 0 5px;
-    width: calc(100%  / 3 - 10px);
+    width: calc(100%  / 2 - 10px);
     font-size: 10px ;
     cursor: pointer;
 
@@ -119,7 +119,7 @@ export default {
 
 @media (min-width: 640px) {
   .card--typo {
-    width: calc(100%  / 3 - 10px);
+    width: calc(100%  / 2 - 10px);
      font-size: 16px ;
   }
 }
