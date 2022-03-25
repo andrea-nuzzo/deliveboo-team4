@@ -123,10 +123,10 @@
 }
 
 @media screen and (min-width: 768px) {
-    body {
-        // margin: calc($header-height + 1rem) 0 0 0;
-        padding-left: calc($nav-width + 2rem)
-    }
+    // body {
+    //     // margin: calc($header-height + 1rem) 0 0 0;
+    //     padding-left: calc($nav-width + 2rem)
+    // }
 
     main {
         margin: calc($header-height + 1rem) 0 0 0;

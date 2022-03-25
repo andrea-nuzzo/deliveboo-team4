@@ -29,10 +29,10 @@
     <div id="body-pd">
         {{-- Se è un utente non Loggato--}}
         @guest
-            <div class="d-flex justify-content-between align-items-center pt-3">
+            <div class="d-flex justify-content-between align-items-center">
                 {{-- logo --}}
                 <div>
-                    <a href="{{ url('/') }}">
+                    <a href="{{ url('/') }}" class="">
                         {{-- {{ config('app.name', 'Laravel') }} --}}
                         <img src="{{asset('/storage/image/logo/LogoColored.png')}}" alt="Logo-DeliveBoo" width="100">
                     </a>
@@ -48,7 +48,7 @@
 
                     {{-- register --}}
                     @if (Route::has('register'))
-                        <button class="generalBtn btn--green mx-3 d-flex align-items-center">
+                        <button class="generalBtn btn--green d-flex align-items-center">
                             <i class="fas fa-user-circle"></i>
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </button>
