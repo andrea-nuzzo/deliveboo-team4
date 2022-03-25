@@ -21,22 +21,13 @@
 
 export default {
 
-    name: 'CardUser',
+  name: 'CardUser',
 
-    props : {
-      usersList : Array,
-    },
-
-    data () {
-
-      return {
-
-      }
-
-    }
+  props : {
+    usersList : Array,
+  },
 
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -65,7 +56,8 @@ export default {
     border-radius: .2rem;
   }
 
-// .cardUser:hover{
-
-// }
+ .cardUser:hover{
+  transform: scale(1.05);
+  transition: 0.6s;
+ }
 </style>

@@ -2,9 +2,9 @@
     <div>
          <div class="container-fluid mt-3">
             <vue-horizontal class="mx-4">
-                <div v-for="(typology, index) in typologies" :key="typology.id" class="card--typo" :class="{ ciao : active.includes(index)}" @click="activeTypology(index)">
-                    <div class="containerImage"  @click="filter(typology.id)">
-                        <img :src="`/storage/${typology.image}`" alt="">
+                <div v-for="(typology, index) in typologies" :key="typology.id" class="card--typo" >
+                    <div class="containerImage p-1"  @click="filter(typology.id)">
+                        <img :src="`/storage/${typology.image}`" alt="" :class="{ shadowBlur : active.includes(index)}" @click="activeTypology(index)">
                         <div class="typologyName">{{typology.type}}</div>
                     </div>
                 </div>
@@ -25,6 +25,7 @@ export default {
     components: {
         CardUser,
     },
+
     data() {
         return {
             typologies: [],
@@ -33,22 +34,17 @@ export default {
             active: [],
         }
     },
+
     created() {
         axios.get(`/api/typologies`)
             .then((response) => {
                 this.typologies = response.data;
             });
-            // .catch((error) => {
-            //     this.$router.push({name: 'page-404'})
-            // });
 
         axios.get(`/api/users`)
             .then((response) => {
                 this.users = response.data;
             })
-            // .catch((error) => {
-            //     this.$router.push({name: 'page-404'})
-            // });
     },
 
     methods: {
@@ -84,7 +80,6 @@ export default {
             }
         },
     }
-
 }
 </script>
 
@@ -92,7 +87,6 @@ export default {
 
     .containerImage{
         position:relative;
-        
     }
     .typologyName{
         position: absolute;
@@ -100,61 +94,64 @@ export default {
         text-transform: capitalize;
         font-weight: bold;
         margin-left: 10px;
-        color: white;
+        color: var(--white-color);
     }
 
 
-// Carousel
-.card--typo{
-    margin: 0 5px;
-    width: calc(100%  / 2 - 10px);
-    font-size: 10px ;
-    cursor: pointer;
+    // CAROUSEL
+    .card--typo{
+        margin: 0 5px;
+        width: calc(100%  / 2 - 10px);
+        font-size: 10px ;
+        cursor: pointer;
+        //  border: 5px solid transparent;
 
-    img {
-        width:100%;
-        border-radius: 5px;
+        img {
+            width:100%;
+            border-radius: 5px;
+        }
+
     }
-}
 
-@media (min-width: 640px) {
-  .card--typo {
-    width: calc(100%  / 2 - 10px);
-     font-size: 16px ;
-  }
-}
-
-@media (min-width: 768px) {
-  .card--typo {
-    width: calc(100%  / 4 - 10px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .card--typo {
-    width: calc(100%  / 5 - 10px);
-  }
-}
-
-@media (min-width: 1280px) {
-  .card--typo {
-    width: calc(100% / 6 - 10px);
-  }
-}
-
-@media (min-width: 1440px) {
-  .card--typo {
-    width: calc(100% / 7 - 10px);
-  }
-}
-
-@media (min-width: 1600px) {
-  .card--typo {
-    width: calc(100% / 8 - 10px);
-  }
-}
-
-.ciao{
-    opacity: .7;
+    @media (min-width: 640px) {
+    .card--typo {
+        width: calc(100%  / 2 - 10px);
+        font-size: 16px ;
     }
+    }
+
+    @media (min-width: 768px) {
+    .card--typo {
+        width: calc(100%  / 4 - 10px);
+    }
+    }
+
+    @media (min-width: 1024px) {
+    .card--typo {
+        width: calc(100%  / 5 - 10px);
+    }
+    }
+
+    @media (min-width: 1280px) {
+    .card--typo {
+        width: calc(100% / 6 - 10px);
+    }
+    }
+
+    @media (min-width: 1440px) {
+    .card--typo {
+        width: calc(100% / 7 - 10px);
+    }
+    }
+
+    @media (min-width: 1600px) {
+    .card--typo {
+        width: calc(100% / 8 - 10px);
+    }
+    }
+
+    .shadowBlur{
+        box-shadow: 0px 0px 3px 3px rgba(107, 111, 111, 0.803);
+    }
+
 </style>

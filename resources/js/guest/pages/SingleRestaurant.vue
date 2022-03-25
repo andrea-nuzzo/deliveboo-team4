@@ -177,6 +177,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+  
   @import '~sweetalert2/src/variables';
   @import '~sweetalert2/src/sweetalert2';
 .restaurant--container {
@@ -204,7 +205,7 @@ export default {
 }
 .information i {
   color: white;
-  background-color: #00ccbc;
+  background-color: var(--main-color);
   padding: 5px;
   border-radius: 50%;
 }

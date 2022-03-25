@@ -27,6 +27,7 @@ export default {
 <style lang="scss" scoped> 
     .background{
         position: relative;
+        
     }
     .center{
         position: absolute;
