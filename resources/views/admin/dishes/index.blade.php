@@ -54,6 +54,26 @@
 
                                 {{-- script modale cancellazione piatto --}}
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+                                <script>
+                                    // Funzione modale per la cancellazione del piatto
+                                        $('.show_confirm').click(function(event) {
+                                            var form =  $(this).closest("form");
+                                            var name = $(this).data("name");
+                                            event.preventDefault();
+                                            swal({
+                                                title: `Sei sicuro di voler cancellare il piatto?`,
+                                                text: "Se confermi, non potrai più tornare indietro",
+                                                icon: "error",
+                                                buttons: ["Annulla", true],
+                                                dangerMode: true,
+                                            })
+                                            .then((willDelete) => {
+                                                if (willDelete) {
+                                                form.submit();
+                                                }
+                                            });
+                                        });
+                                </script>
                                 
                             </div>
 

@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/admin.js') }}" defer></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,19 +19,17 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     
     {{-- Test Modale --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> --}}
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">--}}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src= "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 </head>
 
 <body>
     <div id="body-pd">
         {{-- Se è un utente non Loggato--}}
         @guest
-
             <div class="d-flex justify-content-between align-items-center pt-3">
-
                 {{-- logo --}}
                 <div>
                     <a href="{{ url('/') }}">
@@ -114,7 +112,35 @@
                     @csrf
                 </form> 
             </nav>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+
+                const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+                    const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId)
+
+                    // Validate that all variables exist
+                    if(toggle && nav && bodypd && headerpd){
+                        toggle.addEventListener('click', ()=>{
+                        // show navbar
+                        nav.classList.toggle('show')
+                        // change icon
+                        toggle.classList.toggle('bx-x')
+                        // add padding to body
+                        bodypd.classList.toggle('body-pd')
+                        // add padding to header
+                        headerpd.classList.toggle('body-pd')
+                        })
+                    }
+                }
+                showNavbar('header-toggle','nav-bar','body-pd','header');
+                });
+            </script>
         </div>
+        
         
         @endguest
 

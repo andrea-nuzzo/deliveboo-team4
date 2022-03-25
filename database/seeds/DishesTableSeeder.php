@@ -96,7 +96,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 5,
+                'user_id' => 2,
                 'category_id' => null,
             ],
 
@@ -108,7 +108,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 5,
+                'user_id' => 2,
                 'category_id' => null,
             ],
 
@@ -120,7 +120,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 5,
+                'user_id' => 2,
                 'category_id' => null,
             ],
 
@@ -132,7 +132,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 5,
+                'user_id' => 2,
                 'category_id' => null,
             ],
 
@@ -144,7 +144,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 5,
+                'user_id' => 2,
                 'category_id' => null,
             ],
 
@@ -156,7 +156,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 5,
+                'user_id' => 2,
                 'category_id' => null,
             ],
 
@@ -170,7 +170,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 6,
+                'user_id' => 3,
                 'category_id' => null,
             ],
 
@@ -182,7 +182,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 6,
+                'user_id' => 3,
                 'category_id' => null,
             ],
 
@@ -194,7 +194,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 6,
+                'user_id' => 3,
                 'category_id' => null,
             ],
 
@@ -206,7 +206,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 6,
+                'user_id' => 3,
                 'category_id' => null,
             ],
 
@@ -218,7 +218,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 6,
+                'user_id' => 3,
                 'category_id' => null,
             ],
 
@@ -230,7 +230,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Mondo Kebab
-                'user_id' => 6,
+                'user_id' => 3,
                 'category_id' => null,
             ],
 
@@ -244,7 +244,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/cornetto-pistacchio.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 7,
+                'user_id' => 4,
                 'category_id' => null,
             ],
 
@@ -256,7 +256,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/bombolone-panna.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 7,
+                'user_id' => 4,
                 'category_id' => null,
             ],
 
@@ -268,7 +268,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/waffle-nutella.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 7,
+                'user_id' => 4,
                 'category_id' => null,
             ],
 
@@ -280,7 +280,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/kinder-waffle-bounty.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 7,
+                'user_id' => 4,
                 'category_id' => null,
             ],
 
@@ -292,7 +292,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/gelato-bombolone.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 7,
+                'user_id' => 4,
                 'category_id' => null,
             ],
 
@@ -304,7 +304,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/cornetto-kinder-bueno.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 7,
+                'user_id' => 4,
                 'category_id' => null,
             ],
 
@@ -318,7 +318,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/salmone-teriyaki.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 8,
+                'user_id' => 5,
                 'category_id' => null,
             ],
 
@@ -330,7 +330,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/mix.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 8,
+                'user_id' => 5,
                 'category_id' => null,
             ],
 
@@ -342,7 +342,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/tonno.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 8,
+                'user_id' => 5,
                 'category_id' => null,
             ],
 
@@ -354,7 +354,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/fish-mix.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 8,
+                'user_id' => 5,
                 'category_id' => null,
             ],
 
@@ -366,7 +366,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/vege-uno.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 8,
+                'user_id' => 5,
                 'category_id' => null,
             ],
 
@@ -378,7 +378,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/vege-due.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 8,
+                'user_id' => 5,
                 'category_id' => null,
             ],
 
@@ -393,7 +393,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/tiramisu.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 9,
+                'user_id' => 6,
                 'category_id' => null,
             ],
 
@@ -405,7 +405,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/mousse.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 9,
+                'user_id' => 6,
                 'category_id' => null,
             ],
 
@@ -417,7 +417,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/sacher.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 9,
+                'user_id' => 6,
                 'category_id' => null,
             ],
 
@@ -429,7 +429,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/cheesecake.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 9,
+                'user_id' => 6,
                 'category_id' => null,
             ],
 
@@ -441,7 +441,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/rocher.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 9,
+                'user_id' => 6,
                 'category_id' => null,
             ],
 
@@ -453,7 +453,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/gianduia.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 9,
+                'user_id' => 6,
                 'category_id' => null,
             ],
 
@@ -469,7 +469,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 10,
+                'user_id' => 7,
                 'category_id' => null,
             ],
 
@@ -481,7 +481,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 10,
+                'user_id' => 7,
                 'category_id' => null,
             ],
 
@@ -493,7 +493,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 10,
+                'user_id' => 7,
                 'category_id' => null,
             ],
 
@@ -505,7 +505,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 10,
+                'user_id' => 7,
                 'category_id' => null,
             ],
 
@@ -517,7 +517,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 10,
+                'user_id' => 7,
                 'category_id' => null,
             ],
 
@@ -529,7 +529,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 10,
+                'user_id' => 7,
                 'category_id' => null,
             ],
 
@@ -543,7 +543,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 12,
+                'user_id' => 8,
                 'category_id' => null,
             ],
 
@@ -555,7 +555,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 12,
+                'user_id' => 8,
                 'category_id' => null,
             ],
 
@@ -567,7 +567,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 12,
+                'user_id' => 8,
                 'category_id' => null,
             ],
 
@@ -579,7 +579,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 12,
+                'user_id' => 8,
                 'category_id' => null,
             ],
 
@@ -591,7 +591,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 12,
+                'user_id' => 8,
                 'category_id' => null,
             ],
 
@@ -603,7 +603,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 12,
+                'user_id' => 8,
                 'category_id' => null,
             ],
 
@@ -618,7 +618,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 13,
+                'user_id' => 9,
                 'category_id' => null,
             ],
 
@@ -630,7 +630,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 13,
+                'user_id' => 9,
                 'category_id' => null,
             ],
 
@@ -642,7 +642,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 13,
+                'user_id' => 9,
                 'category_id' => null,
             ],
 
@@ -654,7 +654,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 13,
+                'user_id' => 9,
                 'category_id' => null,
             ],
 
@@ -666,7 +666,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 13,
+                'user_id' => 9,
                 'category_id' => null,
             ],
 
@@ -678,7 +678,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => null,
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 13,
+                'user_id' => 9,
                 'category_id' => null,
             ],
 
@@ -693,7 +693,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/cremino.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 14,
+                'user_id' => 10,
                 'category_id' => null,
             ],
 
@@ -705,7 +705,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/profiteroles.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 14,
+                'user_id' => 10,
                 'category_id' => null,
             ],
 
@@ -717,7 +717,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/pistacchio.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 14,
+                'user_id' => 10,
                 'category_id' => null,
             ],
 
@@ -729,7 +729,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/nocciole.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 14,
+                'user_id' => 10,
                 'category_id' => null,
             ],
 
@@ -741,7 +741,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/crepe.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 14,
+                'user_id' => 10,
                 'category_id' => null,
             ],
 
@@ -753,7 +753,7 @@ class DishesTableSeeder extends Seeder
                 'visible' => 1,
                 'image' => 'uploads/waffle.jpeg',
                 // ognuno deve inserire lo user id del proprio Dolce Mazzini
-                'user_id' => 14,
+                'user_id' => 10,
                 'category_id' => null,
             ],
         ];
