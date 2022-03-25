@@ -1,8 +1,7 @@
 <template> 
     <footer class="footer">
-        <div class="container">
-            <div class="row py-4 justify-content-between">
-                <div class="col-6 col-md-3">
+        <div class="container-custom">
+                <div class="grid-item">
                     <div class="bg--custom">
                         <h4>Scopri Deliveroo</h4>
                         <ul>
@@ -19,7 +18,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="grid-item">
                     <div class="bg--custom">
                         <h4>Note legali</h4>
                         <ul>
@@ -29,7 +28,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="grid-item">
                     <div class="bg--custom">
                         <h4>Aiuto</h4>
                         <ul>
@@ -39,21 +38,21 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="grid-item">
                     <div class="bg--custom">
                         <h4>Porta DeliveBoo con te</h4>
                         <div class="img">IOS</div>
                         <div class="img">Android</div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-between text-right">
+        </div>
+
+            <!-- <div class="row justify-content-between text-right">
                 <div class="col"></div>
                 <div class="col">
                     Made with ❤️ &nbsp by <a href="https://github.com/andrea-nuzzo">Andrea</a> <a href="https://github.com/Sergjio97">Sergio</a> <a href="https://github.com/Jurypassa">Jury</a> <a href="https://github.com/AnaisDiGenua">Anais</a> <a href="https://github.com/Papa97">Guido</a>
                 </div>
-            </div>
-        </div>
+            </div> -->
     </footer>
 </template>
 
@@ -66,15 +65,20 @@ export default {
 
 <style lang='scss' scoped>
 .footer {
-    
+    // .container-custom {
+    // display: grid; 
+    // grid-template-columns: 1fr;
+    // grid-template-rows: repeat(4, 1fr);
+    // gap:10px;
+    // padding:10px;
+    // }
 
     background-color: #2e3333;
     color: #fff;
 
-    .col-6 {
-        padding-top: 10px;
-        margin-top: 5px;
-        padding: 0;
+    .grid-item {
+        background-color: #434848;
+        padding:10px;
         h4{
             text-align: center;
             margin-top: 10px;
@@ -87,18 +91,64 @@ export default {
 
             li{
                 list-style: none;
-                padding-left: 10px;
             }
         }
     }
 }
 
-.bg--custom {
-    padding-top: 10px;
-    padding-top: 10px;
-    background-color: #434848;
-    width: 95%;
+@media (max-width: 640px) {
+  .container-custom {
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: auto repeat(4, 1fr);
+    gap:10px;
+    padding:10px;
     height: 100%;
-    margin: 0 auto;
+  }
 }
+
+@media (min-width: 641px) {
+  .container-custom {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:  auto repeat(2, 1fr);
+    gap:15px;
+    padding:15px;
+
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    display: grid; 
+    gap:20px;
+    padding:20px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr; 
+  }
+}
+
+// @media (min-width: 1024px) {
+//   .container {
+//     width: calc(100%  / 5 - 10px);
+//   }
+// }
+
+// @media (min-width: 1280px) {
+//   .container {
+//     width: calc(100% / 6 - 10px);
+//   }
+// }
+
+// @media (min-width: 1440px) {
+//   .container {
+//     width: calc(100% / 7 - 10px);
+//   }
+// }
+
+// @media (min-width: 1600px) {
+//   .container {
+//     width: calc(100% / 8 - 10px);
+//   }
+// }
 </style>
