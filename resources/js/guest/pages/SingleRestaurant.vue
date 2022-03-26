@@ -3,7 +3,7 @@
 
     <div class="row mb-3">
 
-      <div class="img--restaurant col-xs-10 col-sm-6 col-lg-5 py-3 pl-5">
+      <div class="img--restaurant col-xs-10 offset-xs-1 col-sm-6 col-lg-5 pl-md-5">
         <img :src="`/storage/${restaurant.image}`" alt="">
       </div>
       <!-- inizio colonna di dx -->
@@ -32,41 +32,36 @@
       <!-- fine colonna di dx -->
     </div>
 
-    <div class="row d-flex justify-content-around mx-2">
-
-      <div class="col-sm-12 col-md-8">
-        <!-- inizio menu -->
+    <div class="row d-flex justify-content-around">
+      <div class="col-sm-12 col-xl-8  d-flex flex-wrap border border-danger">
+        <!-- Piatti Menu -->
         <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
-
           <div v-show="dish.visible">
-        
-          <div class="card4 d-flex justify-content-around " @click="addToCart(dish)"  href="#">
-            <div class="w-100">
-              <h3>{{dish.name}}</h3>
-              <p class="small">{{dish.ingredients}}</p>
-              <div class="dimmer">€ {{dish.price}}</div>
-            </div>
-            <div >
-              <div class="img" :style="{ backgroundImage: `url('/storage/${dish.image}')` }"></div>
-            </div>
-            <div class="go-corner" href="#">
-              <div class="go-arrow">
-                +
+            <div class="card4 d-flex justify-content-around " @click="addToCart(dish)"  href="#">
+              <div class="w-100">
+                <h3>{{dish.name}}</h3>
+                <p class="small">{{dish.ingredients}}</p>
+                <div class="dimmer">€ {{dish.price}}</div>
               </div>
-            </div>
-          </div>
-            </div>
+                <div >
+                  <div class="img" :style="{ backgroundImage: `url('/storage/${dish.image}')` }"></div>
+                </div>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    +
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>
-      <!-- carrello -->
-      <div class="col-md-4">
+      <!-- Carrello -->
+      <div class="col-sm-12 col-xl-4 cart border border-danger">
         <Cart :carrello="carrello"/>
       </div>
-
     </div>
-
   </div>
+  
 </template>
 
 <script>
@@ -168,14 +163,6 @@ export default {
   @import '~sweetalert2/src/variables';
   @import '~sweetalert2/src/sweetalert2';
 
-  .img{
-    height: 100px;
-    width: 150px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 5px;
-  }
 .restaurant--container {
   overflow-x: hidden;
 }
@@ -206,25 +193,8 @@ export default {
   border-radius: 50%;
 }
 
-div.card-dish {
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
-  transition: box-shadow 0.2s ease-in-out;
-
-  &:hover {
-      cursor: pointer;
-      box-shadow: 0 22px 24px 0 rgb(0 0 0 / 8%);
-  }
-  .card-text{
-    overflow: hidden;
-  }
-
-}
-
 .card-body {
   max-height: 100%;
 }
-
-
 
 </style>
