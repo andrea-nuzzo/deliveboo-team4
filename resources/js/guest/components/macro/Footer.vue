@@ -46,13 +46,11 @@
                     </div>
                 </div>
         </div>
-
-            <!-- <div class="row justify-content-between text-right">
-                <div class="col"></div>
-                <div class="col">
+        <div class="container--author">
+                <div class="footer--author">
                     Made with ❤️ &nbsp by <a href="https://github.com/andrea-nuzzo">Andrea</a> <a href="https://github.com/Sergjio97">Sergio</a> <a href="https://github.com/Jurypassa">Jury</a> <a href="https://github.com/AnaisDiGenua">Anais</a> <a href="https://github.com/Papa97">Guido</a>
                 </div>
-            </div> -->
+        </div>
     </footer>
 </template>
 
@@ -65,13 +63,10 @@ export default {
 
 <style lang='scss' scoped>
 .footer {
-    // .container-custom {
-    // display: grid; 
-    // grid-template-columns: 1fr;
-    // grid-template-rows: repeat(4, 1fr);
-    // gap:10px;
-    // padding:10px;
-    // }
+    .container-custom {
+        max-width: 1074px;
+        margin: 0 auto;
+    }
 
     background-color: #2e3333;
     color: #fff;
@@ -94,6 +89,17 @@ export default {
             }
         }
     }
+}
+
+.container--author{
+    width: 100%;
+    max-width: 1074px;
+    margin: 0 auto;
+}
+
+.footer--author{
+    width: 100%;
+    text-align: end;
 }
 
 @media (max-width: 640px) {
