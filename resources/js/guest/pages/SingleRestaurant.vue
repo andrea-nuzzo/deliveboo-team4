@@ -39,38 +39,25 @@
         <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
 
           <div v-show="dish.visible">
-
-            <div class="card-dish mb-3">
-
-              <div class="row no-gutters d-flex align-items-center">
-
-                <div class="col-md-7">
-
-                  <div class="card-body">
-                    <h5 class="card-title">{{dish.name}}</h5>
-                    <p class="card-text">{{dish.ingredients}}</p>
-                    <p class="card-text"><small class="text-muted">€ {{dish.price}}</small></p> 
-                    <button class="generalBtn btn--green" @click="addToCart(dish)">Aggiungi al carrello</button>        
-                  </div> 
-
-                </div>
-
-                <div class="col-sm-8 col-md-4 my-3">
-                  <img class="rounded-circle dish-menu" :src="`/storage/${dish.image}`" alt="">
-                </div>
-
-                <!-- <div class="col-md-4 mx-3 my-3">
-                  <button class="generalBtn btn--green" @click="addToCart(dish)">Aggiungi al carrello</button>
-                </div> -->
-                
-              </div>
-
+        
+          <div class="card4 d-flex justify-content-around " @click="addToCart(dish)"  href="#">
+            <div class="w-100">
+              <h3>{{dish.name}}</h3>
+              <p class="small">{{dish.ingredients}}</p>
+              <div class="dimmer">€ {{dish.price}}</div>
             </div>
-
+            <div >
+              <div class="img" :style="{ backgroundImage: `url('/storage/${dish.image}')` }"></div>
+            </div>
+            <div class="go-corner" href="#">
+              <div class="go-arrow">
+                +
+              </div>
+            </div>
           </div>
-
+            </div>
+          </div>
         </div>
-
       </div>
       <!-- carrello -->
       <div class="col-md-4">
@@ -180,6 +167,15 @@ export default {
   
   @import '~sweetalert2/src/variables';
   @import '~sweetalert2/src/sweetalert2';
+
+  .img{
+    height: 100px;
+    width: 150px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+  }
 .restaurant--container {
   overflow-x: hidden;
 }
@@ -211,7 +207,6 @@ export default {
 }
 
 div.card-dish {
-  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
   transition: box-shadow 0.2s ease-in-out;
@@ -222,12 +217,6 @@ div.card-dish {
   }
   .card-text{
     overflow: hidden;
-  }
-  img{
-    height: 200px;
-    width: inherit;
-    object-fit: cover;
-    object-position: bottom;
   }
 
 }
