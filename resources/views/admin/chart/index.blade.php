@@ -2,21 +2,19 @@
 
 @section('content')
     <div class="container">
+        <canvas id="myChart" width="400" height="400"></canvas>
     </div>
-
-<canvas id="myChart" width="400" height="400"></canvas>
-
 <script>
 
     const ctx = document.getElementById('myChart');
     const myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: {!! json_encode($dishName) !!} ,
             datasets: [{
                 label: '# of Votes',
                 
-                data:  {!! json_encode($prova) !!} ,
+                data:  {!! json_encode($totalQuantity) !!} ,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -45,4 +43,4 @@
         }
     });
     </script>
-@endsection;
+@endsection

@@ -34,21 +34,26 @@ class OrderController extends Controller
     {
         $idLog = Auth::id();
         $user = DB::table('users')->where('id', '=', $idLog)->first();
-        
-        $quantity = DB::table('users')
+
+        // $quantity = DB::table('users')
+        //     ->join('dishes', 'users.id', '=', 'dishes.user_id')
+        //     ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
+        //     ->join('orders', 'dish_order.order_id', '=', 'orders.id')
+        //     ->select('dish_order.quantity', 'dishes.name')
+        //     ->get();
+
+        $quantity = DB::table('users')        
             ->join('dishes', 'users.id', '=', 'dishes.user_id')
             ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
             ->join('orders', 'dish_order.order_id', '=', 'orders.id')
-            ->select('dish_order.quantity', 'dishes.name')
+            ->select(DB::raw('sum(dish_order.quantity) as qty , dishes.name'))
+            ->groupBy('dishes.name')
             ->get();
 
-            
-            $name = [];
-            foreach ($quantity as $item ){
-                $filterQuantity[] = $item[];
-            }
+        $dishName = $quantity->pluck('name');
+        $totalQuantity = $quantity->pluck('qty');
 
-        return view('admin.chart.index', compact('quantity', 'user', 'name'));
+        return view('admin.chart.index', compact('totalQuantity','dishName','quantity' ,'user'));
     }
 
     /**
