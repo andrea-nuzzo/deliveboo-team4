@@ -26,9 +26,29 @@ class OrderController extends Controller
         $user = DB::table('users')->where('id', '=', $idLog)->first();
 
         $orders = Order::with(['dishes'])->groupBy('id')->orderBy('updated_at', 'desc')->get();
-        // $quantity = $dishes->pluck('pivot.quantity');
 
         return view('admin.orders.index', compact('orders', 'user'));
+    }
+
+    public function chart()
+    {
+        $idLog = Auth::id();
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
+        
+        $quantity = DB::table('users')
+            ->join('dishes', 'users.id', '=', 'dishes.user_id')
+            ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
+            ->join('orders', 'dish_order.order_id', '=', 'orders.id')
+            ->select('dish_order.quantity', 'dishes.name')
+            ->get();
+
+            
+            $name = [];
+            foreach ($quantity as $item ){
+                $filterQuantity[] = $item[];
+            }
+
+        return view('admin.chart.index', compact('quantity', 'user', 'name'));
     }
 
     /**
