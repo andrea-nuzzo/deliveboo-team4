@@ -29,35 +29,32 @@
     <div id="body-pd">
         {{-- Se è un utente non Loggato--}}
         @guest
-            <div class="d-flex justify-content-between align-items-center">
-                {{-- logo --}}
-                <div>
-                    <a href="{{ url('/') }}" class="">
-                        {{-- {{ config('app.name', 'Laravel') }} --}}
-                        <img src="{{asset('/storage/image/logo/LogoColored.png')}}" alt="Logo-DeliveBoo" width="100">
-                    </a>
-                </div>
 
-                <div class="d-flex">
-
-                    {{-- login --}}
-                    <button class="generalBtn btn--green d-flex align-items-center">
-                        <i class="fas fa-user-circle"></i>
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
-                    </button>
-
-                    {{-- register --}}
-                    @if (Route::has('register'))
-                        <button class="generalBtn btn--green d-flex align-items-center">
-                            <i class="fas fa-user-circle"></i>
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{asset('/storage/image/logo/LogoColored.png')}}" alt="Logo-DeliveBoo" width="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+                    <div  class="mx-auto"></div>
+                    <div class="d-flex justify-content-end mt-2">
+                        <button class="generalBtn btn--green d-flex align-items-center mx-3">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                         </button>
-                    @endif
-
+                        @if (Route::has('register'))
+                            <button class="generalBtn btn--green d-flex align-items-center">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            </button>
+                        @endif
+    
+                    </div>
                 </div>
-
-            </div>
-
+            </nav>
         @else
 
         {{-- Se è un utente Loggato--}}
@@ -90,7 +87,7 @@
                             <span class="nav_name">Piatti</span> 
                         </a>
                         
-                        <a href="#" class="nav_link">
+                        <a href="{{ route('orders')}}" class="{{ Request::path() ==  'admin/orders' ? 'nav_link active' : 'nav_link'  }}">
                             <i class="bx fa-solid fa-basket-shopping nav_icon"></i>
                             <span class="nav_name">Ordini</span>
                         </a>
@@ -145,7 +142,7 @@
         @endguest
 
         {{-- Contenuto --}}
-        <main class="height-100 bg-light d-flex justify-content-center">
+        <main class="bg-light">
             @yield('content')
         </main>
     </div>

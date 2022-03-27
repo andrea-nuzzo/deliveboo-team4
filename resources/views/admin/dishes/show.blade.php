@@ -2,14 +2,14 @@
 
 @section('content')
 @if($dish->user_id == Auth::id())
-<div class="container position-fixed">
-    <div class="row ">
-        <div class="col-12 d-flex justify-content-center">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 ">
             <div class="row m-3">
                 <div class="container dishesShow p-3">
                     {{-- Sezione Immagine Piatto --}}
                     @if ($dish->image)
-                        <img src="{{asset("storage/{$dish->image}")}}" alt="{{$dish->name}}">
+                        <img src="{{asset("storage/{$dish->image}")}}" class="w-100" alt="{{$dish->name}}">
                     @endif
                     <div class="m-2">
                         {{-- Sezione Ingredienti --}}

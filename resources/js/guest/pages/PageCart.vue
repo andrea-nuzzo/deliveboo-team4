@@ -56,6 +56,17 @@
                 oninput="this.setCustomValidity('')"
               />
             </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                v-model="form.client.email"
+                required
+              />
+            </div>
           </div>
         </div>
 
@@ -84,15 +95,11 @@
               <div></div>
             </div>
           </div>-->
-          <button class="btn btn--green">
+          <button class="btn btn--green mb-5">
             Procedi al pagamento
           </button> 
         </div>
       </form>
-      <!-- <div v-else class="loading-payment">
-        <h4>Pagamento in corso...</h4>
-        <div class="lds-circle"></div>
-      </div> -->
     </div>
   </div>
 </template>

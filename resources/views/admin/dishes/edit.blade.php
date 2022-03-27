@@ -2,7 +2,7 @@
 
 @section('content')
 @if($dish->user_id == Auth::id())
-<div class="container">
+<div class="container mt-5 pt-3">
     <form action="{{route("dishes.update", $dish->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method("PUT")

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
 
 
 * {
@@ -40,7 +40,7 @@ h3 {
 }
 
 p {
-    max-height: 40px;
+  max-height: 40px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 17px;
@@ -96,7 +96,7 @@ p {
     width: 23px;
     padding-right: 9px;
     border-radius: 0;
-    transform: skew(6deg);
+    transform: skew(4deg);
     margin-right: -36px;
     align-items: start;
     background-image: linear-gradient(-45deg, #00c2b3 1%, #00ccbc 100%);

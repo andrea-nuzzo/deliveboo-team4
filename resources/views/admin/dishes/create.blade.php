@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container mt-5 pt-3">
     <form action="{{route("dishes.store")}}" method="POST" enctype="multipart/form-data">
         @csrf
     

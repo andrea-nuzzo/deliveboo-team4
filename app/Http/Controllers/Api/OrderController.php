@@ -20,7 +20,8 @@ class OrderController extends Controller
             'client.name' => ['required', 'string', 'max:100'],
             'client.lastName' => ['required', 'string', 'max:100'],
             'client.address' => ['required', 'string', 'max:255'],
-            'client.phone' => ['nullable', 'numeric', 'digits_between:8,15']
+            'client.phone' => ['nullable', 'numeric', 'digits_between:8,15'],
+            'client.email' => ['required','string','email', 'max:255']
         ]);
 
         if ($validator->fails()) {
@@ -66,6 +67,7 @@ class OrderController extends Controller
                 $newOrder->dishes()->attach($dish["id"], ['quantity' => $dish["quantity"]]);
             }
 
+            
             $data = [
                 'success' => true,
                 'message' => "Transazione eseguita con Successo!"

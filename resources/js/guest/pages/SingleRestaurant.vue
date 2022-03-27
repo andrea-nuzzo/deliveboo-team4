@@ -33,7 +33,7 @@
     </div>
 
     <div class="row d-flex justify-content-around">
-      <div class="col-sm-12 col-xl-8  d-flex flex-wrap border border-danger">
+      <div class="col-sm-12 col-xl-8  d-flex flex-wrap">
         <!-- Piatti Menu -->
         <div v-for="dish in restaurant.dishes" :key="dish.id" class="col-sm-12 col-md-6">
           <div v-show="dish.visible">
@@ -44,7 +44,7 @@
                 <div class="dimmer">€ {{dish.price}}</div>
               </div>
                 <div >
-                  <div class="img" :style="{ backgroundImage: `url('/storage/${dish.image}')` }"></div>
+                  <div v-if="dish.image" class="img" :style="{ backgroundImage: `url('/storage/${dish.image}')` }"></div>
                 </div>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -56,7 +56,7 @@
         </div>
       </div>
       <!-- Carrello -->
-      <div class="col-sm-12 col-xl-4 cart border border-danger">
+      <div class="col-sm-12 col-xl-4 cart">
         <Cart :carrello="carrello"/>
       </div>
     </div>
