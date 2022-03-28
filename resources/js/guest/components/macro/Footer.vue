@@ -52,7 +52,7 @@
         </div>
         <div class="container--author">
                 <div class="footer--author">
-                    Made with ❤️ &nbsp by <a href="https://github.com/andrea-nuzzo">Andrea</a> <a href="https://github.com/Sergjio97">Sergio</a> <a href="https://github.com/Jurypassa">Jury</a> <a href="https://github.com/AnaisDiGenua">Anais</a> <a href="https://github.com/Papa97">Guido</a>
+                    Made with by <a href="https://github.com/andrea-nuzzo">Andrea</a> <a href="https://github.com/Sergjio97">Sergio</a> <a href="https://github.com/Jurypassa">Jury</a> <a href="https://github.com/AnaisDiGenua">Anais</a> <a href="https://github.com/Papa97">Guido</a>
                 </div>
         </div>
     </footer>
@@ -116,6 +116,10 @@ export default {
 .footer--author{
     width: 100%;
     text-align: end;
+    color: gray;
+    & a {
+         color: gray;
+    }
 }
 
 @media (max-width: 640px) {

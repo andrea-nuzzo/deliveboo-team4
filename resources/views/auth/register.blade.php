@@ -140,7 +140,7 @@
 
                         {{-- Section Upload Image --}}
                         <div class="form-group row">
-                            <label for="image" class="col-md-4 col-form-label text-md-right">{{__('Aggiungi un immagine')}}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-right">{{__('Aggiungi un immagine *')}}</label>
                             <div class="col-md-6 d-flex align-items-center">
                                 <img id="uploadPreview" width="100" src="http://drive.google.com/uc?export=view&id=1RvAowCnXCvqajysCVqzhMseDH85cBJbo" class="rounded">
                                 <input type="file" class="form-control-file mx-3 @error('image') is-invalid @enderror" id="image" required name="image" onchange="PreviewImage();">
@@ -174,7 +174,6 @@
                             </div>
                         </div>
                     </form>
-                    <div class=" col-md-6 capiObbligatori text-center my-3">* Campi obbligatori</div>
                 </div>
             </div>
         </div>

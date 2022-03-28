@@ -30,20 +30,7 @@ class OrderController extends Controller
         ->orderBy('updated_at', 'desc')
         ->where('payment_state', '=', $idLog)
         ->get();
-
-        // $orders = DB::table('users')
-        // ->join('dishes', 'users.id', '=', 'dishes.user_id')
-        // ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
-        // ->join('orders', 'dish_order.order_id', '=', 'orders.id')
-        // ->where('users.id', '=', $idLog)
         
-        // ->select('orders.*', 'users.*', 'dishes.*', 'dish_order.*')
-        // ->groupBy('orders.id')
-        // ->get();
-
-        
-
-
         return view('admin.orders.index', compact('orders', 'user'));
     }
 

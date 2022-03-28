@@ -41,17 +41,24 @@
                 <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
                     <div  class="mx-auto"></div>
                     <div class="d-flex justify-content-end mt-2">
-                        <button class="generalBtn btn--green d-flex align-items-center mx-3">
-                            <i class="fa-solid fa-user-astronaut"></i>
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
-                        </button>
-                        @if (Route::has('register'))
-                            <button class="generalBtn btn--green d-flex align-items-center">
-                                <i class="fa-solid fa-user-plus"></i>
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                        @if($user->id == Auth:id())
+                            <button class="generalBtn btn--green d-flex align-items-center mx-3">
+                                <i class="fa-solid fa-user-astronaut"></i>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                             </button>
+                        @else
+                            <button class="generalBtn btn--green d-flex align-items-center mx-3">
+                                <i class="fa-solid fa-user-astronaut"></i>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                            </button>
+                            @if (Route::has('register'))
+                                <button class="generalBtn btn--green d-flex align-items-center">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                                </button>
+                            @endif
                         @endif
-
+                        
                     </div>
                 </div>
             </nav>
