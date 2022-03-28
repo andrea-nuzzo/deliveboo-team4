@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{$user}}
 {{-- @if($user_id == Auth::id()) --}}
     <div class="container">
         <div class="row">

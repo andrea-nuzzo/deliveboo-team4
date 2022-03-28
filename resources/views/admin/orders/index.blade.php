@@ -23,7 +23,7 @@
           <td>{{$order->last_name}}</td>
           <td>{{$order->phone}}</td>
           <td>{{$order->address}}</td>
-          <td>{{($order->dish)}} 
+          <td>{{($order->dish)}}
             @foreach ($order->dishes as $dish)
                 <div>
                     <span>{{$dish->name}},</span> 
@@ -38,8 +38,4 @@
       </tbody>
     </table>
 </div>
-  {{-- @dd($orders[2]->dishes[0]->pivot->quantity) --}}
-    {{-- @foreach ($dishes as $item)
-        @dd($item)
-    @endforeach --}}
 @endsection

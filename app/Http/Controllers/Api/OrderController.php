@@ -32,7 +32,6 @@ class OrderController extends Controller
         }
 
         $data = $request->all();
-
         $dishes = $data['dishes'];
         $dish = Dish::find($dishes[0]['id']);
         $user = $dish->user;
@@ -60,7 +59,7 @@ class OrderController extends Controller
             $newOrder->address = $data['client']['address'];
             $newOrder->phone = $data['client']['phone'];
             $newOrder->total_price = $total;
-            // $newOrder->user_id = $user->id;
+            $newOrder->payment_state = $user->id;
             $newOrder->save();
        
             foreach ($dishes as $dish) {

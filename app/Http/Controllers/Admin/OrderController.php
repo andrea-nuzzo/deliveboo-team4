@@ -25,18 +25,35 @@ class OrderController extends Controller
         // Recupero tutti i dati dell'utente loggato
         $user = DB::table('users')->where('id', '=', $idLog)->first();
 
-        $orders = Order::with(['dishes'])->groupBy('id')->orderBy('updated_at', 'desc')->get();
+        $orders = Order::with(['dishes'])
+        ->groupBy('id')
+        ->orderBy('updated_at', 'desc')
+        ->where('payment_state', '=', $idLog)
+        ->get();
+
+        // $orders = DB::table('users')
+        // ->join('dishes', 'users.id', '=', 'dishes.user_id')
+        // ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
+        // ->join('orders', 'dish_order.order_id', '=', 'orders.id')
+        // ->where('users.id', '=', $idLog)
+        
+        // ->select('orders.*', 'users.*', 'dishes.*', 'dish_order.*')
+        // ->groupBy('orders.id')
+        // ->get();
+
+        
+
 
         return view('admin.orders.index', compact('orders', 'user'));
     }
 
     public function chart()
     {
-           //Prendo l'id dell'utente loggato
-           $idLog = Auth::id();
+        //Prendo l'id dell'utente loggato
+        $idLog = Auth::id();
 
-           // Recupero tutti i dati dell'utente loggato
-           $user = DB::table('users')->where('id', '=', $idLog)->first();
+        // Recupero tutti i dati dell'utente loggato
+        $user = DB::table('users')->where('id', '=', $idLog)->first();
 
         $quantity = DB::table('users')        
             ->join('dishes', 'users.id', '=', 'dishes.user_id')
@@ -47,9 +64,13 @@ class OrderController extends Controller
             ->where('users.id', '=', $idLog)
             ->get();
 
-        $price = DB::table('orders')        
-        ->select('updated_at','total_price')
-        ->get();
+        $price = DB::table('users')
+            ->join('dishes', 'users.id', '=', 'dishes.user_id')
+            ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
+            ->join('orders', 'dish_order.order_id', '=', 'orders.id')
+            ->select('orders.updated_at','orders.total_price')
+            ->where('users.id', '=', $idLog)
+            ->get();
 
         $dishName = $quantity->pluck('name');
         $totalQuantity = $quantity->pluck('qty');
@@ -58,11 +79,8 @@ class OrderController extends Controller
            $item->updated_at = date("d-m-Y", strtotime($item->updated_at));
         }
         
-        // $price->updated_at->format('d M')
         $orderDate = $price->pluck('updated_at');
         $totalPrice = $price->pluck('total_price');
-
-       
 
         return view('admin.chart.index', compact('totalQuantity','dishName','quantity' ,'user', 'price', 'orderDate' , 'totalPrice'));
     }
