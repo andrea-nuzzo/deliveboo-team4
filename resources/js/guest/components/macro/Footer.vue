@@ -3,7 +3,7 @@
         <div class="container-custom">
                 <div class="grid-item">
                     <div class="bg--custom">
-                        <h4>Scopri Deliveroo</h4>
+                        <h4>Scopri DeliveBoo</h4>
                         <ul>
                             <li>Investitori</li>
                             <li>Chi siamo</li>
@@ -39,10 +39,14 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <div class="bg--custom">
+                    <div class="bg--custom d-flex flex-column align-items-center">
                         <h4>Porta DeliveBoo con te</h4>
-                        <div class="img">IOS</div>
-                        <div class="img">Android</div>
+                        <div class="img mt-3">
+                            <img :src="`/storage/image/logo/ios.png`" class="w-100" alt="scarica su ios">
+                        </div>
+                        <div class="img">
+                            <img :src="`/storage/image/logo/android.png`" class="w-100" alt="scarica su android">
+                        </div>
                     </div>
                 </div>
         </div>
@@ -75,7 +79,6 @@ export default {
         background-color: #434848;
         padding:10px;
         h4{
-            text-align: center;
             margin-top: 10px;
         }
         .img {
@@ -85,12 +88,22 @@ export default {
             padding: 0;
 
             li{
+                cursor: pointer;
                 list-style: none;
+                font-size: 14px;
+            }
+            li:hover {
+                color: #00ccbc;
             }
         }
     }
 }
 
+.bg--custom{
+    h4{
+        font-weight: 500;
+    }
+}
 .container--author{
     width: 100%;
     max-width: 1074px;
