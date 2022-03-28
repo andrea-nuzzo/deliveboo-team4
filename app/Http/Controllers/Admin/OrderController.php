@@ -32,15 +32,11 @@ class OrderController extends Controller
 
     public function chart()
     {
-        $idLog = Auth::id();
-        $user = DB::table('users')->where('id', '=', $idLog)->first();
+           //Prendo l'id dell'utente loggato
+           $idLog = Auth::id();
 
-        // $quantity = DB::table('users')
-        //     ->join('dishes', 'users.id', '=', 'dishes.user_id')
-        //     ->join('dish_order', 'dish_order.dish_id', '=', 'dishes.id')
-        //     ->join('orders', 'dish_order.order_id', '=', 'orders.id')
-        //     ->select('dish_order.quantity', 'dishes.name')
-        //     ->get();
+           // Recupero tutti i dati dell'utente loggato
+           $user = DB::table('users')->where('id', '=', $idLog)->first();
 
         $quantity = DB::table('users')        
             ->join('dishes', 'users.id', '=', 'dishes.user_id')
@@ -48,12 +44,27 @@ class OrderController extends Controller
             ->join('orders', 'dish_order.order_id', '=', 'orders.id')
             ->select(DB::raw('sum(dish_order.quantity) as qty , dishes.name'))
             ->groupBy('dishes.name')
+            ->where('users.id', '=', $idLog)
             ->get();
+
+        $price = DB::table('orders')        
+        ->select('updated_at','total_price')
+        ->get();
 
         $dishName = $quantity->pluck('name');
         $totalQuantity = $quantity->pluck('qty');
+        
+        foreach($price as $item){
+           $item->updated_at = date("d-m-Y", strtotime($item->updated_at));
+        }
+        
+        // $price->updated_at->format('d M')
+        $orderDate = $price->pluck('updated_at');
+        $totalPrice = $price->pluck('total_price');
 
-        return view('admin.chart.index', compact('totalQuantity','dishName','quantity' ,'user'));
+       
+
+        return view('admin.chart.index', compact('totalQuantity','dishName','quantity' ,'user', 'price', 'orderDate' , 'totalPrice'));
     }
 
     /**

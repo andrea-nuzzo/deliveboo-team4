@@ -17,10 +17,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-    
+
     {{-- Test Modale --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">--}}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src= "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
@@ -38,7 +37,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
+
                 <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
                     <div  class="mx-auto"></div>
                     <div class="d-flex justify-content-end mt-2">
@@ -52,7 +51,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                             </button>
                         @endif
-    
+
                     </div>
                 </div>
             </nav>
@@ -71,44 +70,47 @@
         {{-- Navbar --}}
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> 
+                <div>
                     <a href="{{ url('/') }}" class="nav_logo">
                         <img src="{{asset('/storage/image/logo/LogoNavbar.png')}}" alt="Logo-DeliveBoo" width="20">
                         <span class="nav_logo-name">DeliveBoo</span>
                     </a>
-                    
+
                     <div class="nav_list">
-                        <a href="{{ route('home') }}" class="{{ Request::path() ==  'admin/home' ? 'nav_link active' : 'nav_link'  }}">
-                            <i class="bx fa-solid fa-house nav_icon"></i>
-                            <span class="nav_name">Dashboard</span> 
+                        <a href="{{ route('chart')}}" class="{{ Request::path() ==  'admin/chart' ? 'nav_link active' : 'nav_link'  }}">
+                            <i class="bx fa-solid fa-chart-pie nav_icon"></i>
+                            <span class="nav_name">Statistiche</span>
                         </a>
-    
+
                         <a href="{{ route('dishes.index') }}" class="{{ Request::path() ==  'admin/dishes' ? 'nav_link active' : 'nav_link'  }}">
                             <i class="bx fa-solid fa-utensils nav_icon"></i>
-                            <span class="nav_name">Piatti</span> 
+                            <span class="nav_name">Piatti</span>
                         </a>
-                        
+
                         <a href="{{ route('orders')}}" class="{{ Request::path() ==  'admin/orders' ? 'nav_link active' : 'nav_link'  }}">
                             <i class="bx fa-solid fa-basket-shopping nav_icon"></i>
                             <span class="nav_name">Ordini</span>
                         </a>
-                        <a href="#" class="nav_link">
-                            <i class="bx fa-solid fa-chart-pie nav_icon"></i>
-                            <span class="nav_name">Statistiche</span> 
+                        <router-view>
+
+                        </router-view>
+                        <a href="/ristorante/{{$user->slug}}" class="{{ Request::path() ==  '/ristorante' ? 'nav_link active' : 'nav_link'  }}">
+                            <i class="bx fa-solid fa-house nav_icon"></i>
+                            <span class="nav_name">Home</span>
                         </a>
                     </div>
                 </div>
 
                 <a class="nav_link" href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); 
+                    onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
 
-                    <i class="fa-solid fa-right-from-bracket nav_icon"></i> 
+                    <i class="fa-solid fa-right-from-bracket nav_icon"></i>
                     <span class="nav_name">{{ __('Esci') }}</span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                </form> 
+                </form>
             </nav>
 
             <script>
@@ -138,8 +140,8 @@
                 });
             </script>
         </div>
-        
-        
+
+
         @endguest
 
         {{-- Contenuto --}}
