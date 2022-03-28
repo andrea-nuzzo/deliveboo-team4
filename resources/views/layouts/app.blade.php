@@ -41,12 +41,6 @@
                 <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
                     <div  class="mx-auto"></div>
                     <div class="d-flex justify-content-end mt-2">
-                        @if($user->id == Auth:id())
-                            <button class="generalBtn btn--green d-flex align-items-center mx-3">
-                                <i class="fa-solid fa-user-astronaut"></i>
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
-                            </button>
-                        @else
                             <button class="generalBtn btn--green d-flex align-items-center mx-3">
                                 <i class="fa-solid fa-user-astronaut"></i>
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
@@ -57,8 +51,6 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </button>
                             @endif
-                        @endif
-                        
                     </div>
                 </div>
             </nav>
@@ -103,7 +95,7 @@
                         </router-view>
                         <a href="/ristorante/{{$user->slug}}" class="{{ Request::path() ==  '/ristorante' ? 'nav_link active' : 'nav_link'  }}">
                             <i class="bx fa-solid fa-house nav_icon"></i>
-                            <span class="nav_name">Home</span>
+                            <span class="nav_name">Vai al Ristorante</span>
                         </a>
                     </div>
                 </div>

@@ -14,6 +14,10 @@
                     <div class="m-2">
                         {{-- Sezione Ingredienti --}}
                         <div>
+                            <div><strong>{{$dish->name}}</strong></div>
+                        </div>
+                        {{-- Sezione Ingredienti --}}
+                        <div>
                             <div>Ingredienti : {{$dish->ingredients}}</div>
                         </div>
             
