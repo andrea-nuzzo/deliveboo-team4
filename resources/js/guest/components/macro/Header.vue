@@ -10,17 +10,12 @@
 
             <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
                 <div  class="mx-auto"></div>
+
                 <div class="d-flex justify-content-end mt-2">
                     <button class="generalBtn btn--white d-flex align-items-center mx-3">
                         <i class="fa-solid fa-user-astronaut"></i>
-                        <a class="nav-link" href="/login">Accedi</a>
+                        <a class="nav-link" href="/login">Registrati o Accedi</a>
                     </button>
-
-                    <button class="generalBtn btn--white d-flex align-items-center">
-                        <i class="fa-solid fa-user-plus"></i>
-                        <a class="nav-link" href="/register">Registrati</a>
-                    </button>
-
                 </div>
             </div>
         </nav>
