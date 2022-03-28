@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <table class="table">
+<div class="container tableOrder">
+  <table class="table tableOrder table-bordered mt-5">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -17,7 +17,7 @@
       <tbody>
       @foreach ($orders as $order)
           
-        <tr>
+        <tr  class="{{$loop->index % 2 == 0 ? "backgroundLight" : "" }}">
           <th>{{$loop->index + 1}}</th>
           <td>{{$order->first_name}}</td>
           <td>{{$order->last_name}}</td>

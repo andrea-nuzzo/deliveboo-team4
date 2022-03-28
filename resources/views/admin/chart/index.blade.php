@@ -3,11 +3,11 @@
 @section('content')
 {{-- @if($user_id == Auth::id()) --}}
     <div class="container">
-        <div class="row">
-            <div class="col-6">
+        <div class="row mt-5">
+            <div class="col-xs-12 col-md-6">
                 <canvas id="myChart" width="400" height="400"></canvas>
             </div>
-            <div class="col-6">
+            <div class="col-xs-12 col-md-6">
                 <canvas id="myChart2" width="400" height="400"></canvas>
             </div>
         </div>
