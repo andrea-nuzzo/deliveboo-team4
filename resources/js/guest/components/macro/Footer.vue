@@ -83,6 +83,9 @@ export default {
         }
         .img {
             text-align: center;
+            img{
+                cursor: pointer;
+            }
         }
         ul {
             padding: 0;
