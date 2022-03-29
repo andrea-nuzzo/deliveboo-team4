@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid">
       <div class="row">
-        <div v-for="user in usersList" :key="user.id" class="col-xs-12 col-md-6 col-lg-3 cardUser p-3">   
+        <div v-for="user in usersList" :key="user.id" class="col-xs-12 col-md-6 col-lg-4 col-xl-3 cardUser p-3">   
             <div class="image">
               <router-link :to="{ name: 'single-restaurant', params: {slug: user.slug}}"> 
                 <img :src="`/storage/${user.image}`" alt="Users-Image"/>
